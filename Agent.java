@@ -7,7 +7,7 @@ public abstract class Agent
 
     public int getGems()
     {
-        retrun this.gems;
+        return this.gems;
     }
     
     public void setGems(int gems)
