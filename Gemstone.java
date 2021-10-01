@@ -1,16 +1,16 @@
 public class Gemstone extends Treasure
 {
-    protected final int originalValue;
+    protected int currentValue;
     
-    public Gemstone(int number, int originalValue)
+    public Gemstone(int number, int value)
     {
-        super(number);
-        this.originalValue = originalValue;
+        super(number, value);
+        this.currentValue = this.value;
     }
 
-    public int getOriginalValue()
+    public int getCurrentValue()
     {
-        return this.originalValue;
+        return this.currentValue;
     }
 
     @Override
@@ -22,8 +22,8 @@ public class Gemstone extends Treasure
     @Override
     public void share(ArrayList<Agent> receivers)
     {
-        int oneShare = this.value / receivers.size();
-        this.Value %= receivers.size();
+        int oneShare = this.currentValue / receivers.size();
+        this.currentValue %= receivers.size();
         
         for (Agent receiver : receivers)
             receiver.addGems(oneShare)
