@@ -11,4 +11,11 @@ public abstract class Treasure extends Card
     {
         return this.value;
     }
+    
+    public void setValue(int value)
+    {
+        this.value = value;
+    }
+    
+    public abstract void share(ArrayList<Agent> receivers);
 }
