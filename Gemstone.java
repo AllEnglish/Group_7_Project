@@ -15,7 +15,7 @@ public class Gemstone extends Treasure
 
     public String name()
     {
-        return “Gemstone”;
+        return "Gemstone";
     }
 
     public int share(int member)
