@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Artifact extends Treasure
 {
     public Artifact(int number, int value)
