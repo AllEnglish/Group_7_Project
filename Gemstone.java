@@ -1,6 +1,12 @@
 public class Gemstone extends Treasure
 {
     protected final int originalValue;
+    
+    public Gemstone(int number, int originalValue)
+    {
+        super(number);
+        this.originalValue = originalValue;
+    }
 
     public int getOriginalValue()
     {
@@ -9,11 +15,12 @@ public class Gemstone extends Treasure
 
     public String name()
     {
-        return “Gemstone”; // ???
+        return “Gemstone”;
     }
 
     public int share(int member)
     {
         // do something...
+        return 0;
     }
 }
