@@ -13,6 +13,7 @@ public class Gemstone extends Treasure
         return this.originalValue;
     }
 
+    @Override
     public String name()
     {
         return "Gemstone";
