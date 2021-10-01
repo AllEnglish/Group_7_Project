@@ -1,6 +1,7 @@
 public abstract class Treasure extends Card
 {
     protected final int value;
+    // always show $value on either Artifact or Gemstone card, NOT $currentValue!
     
     public Treasure(int number, int value)
     {
