@@ -22,7 +22,7 @@ public abstract class Agent
         return this.gemsInTent;
     }
     
-    public int setGemsInTent(int gemsInTent)
+    public void setGemsInTent(int gemsInTent)
     {
         this.gemsInTent = gemsInTent;
     }
