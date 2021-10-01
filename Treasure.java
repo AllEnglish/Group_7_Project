@@ -1,4 +1,4 @@
-public abstract class Treasure
+public abstract class Treasure extends Card
 {
     protected int value;
 
