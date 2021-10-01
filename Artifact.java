@@ -1,8 +1,8 @@
 public class Artifact extends Treasure
 {
-    public Artifact(int number)
+    public Artifact(int number, int value)
     {
-        super(number);
+        super(number, value);
     }
     
     @Override
