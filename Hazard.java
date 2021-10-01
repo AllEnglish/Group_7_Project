@@ -1,7 +1,8 @@
 public class Hazard extends Card
 {
+    @Override
     public String name()
     {
-        // retrun name base on number
-        }
+        return "name";
+    }
 }
