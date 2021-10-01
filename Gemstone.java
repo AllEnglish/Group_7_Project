@@ -26,6 +26,6 @@ public class Gemstone extends Treasure
         this.currentValue %= receivers.size();
         
         for (Agent receiver : receivers)
-            receiver.addGems(oneShare)
+            receiver.addGems(oneShare);
     }
 }
