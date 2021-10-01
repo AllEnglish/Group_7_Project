@@ -1,21 +1,17 @@
 public abstract class Treasure extends Card
 {
-    protected int value;
+    protected final int value;
     
-    public Treasure(int number)
+    public Treasure(int number, int value)
     {
         super(number);
+        this.value = value;
     }
 
     public int getValue()
     {
         return this.value;
     }
-    
-    public void setValue(int value)
-    {
-        this.value = value;
-    }
-    
+
     public abstract void share(ArrayList<Agent> receivers);
 }
