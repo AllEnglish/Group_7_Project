@@ -19,9 +19,13 @@ public class Gemstone extends Treasure
         return "Gemstone";
     }
 
-    public int share(int member)
+    @Override
+    public void share(ArrayList<Agent> receivers)
     {
-        // do something...
-        return 0;
+        int oneShare = this.value / receivers.size();
+        this.Value %= receivers.size();
+        
+        for (Agent receiver : receivers)
+            receiver.addGems(oneShare)
     }
 }
