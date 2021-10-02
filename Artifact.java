@@ -10,7 +10,19 @@ public class Artifact extends Treasure
     @Override
     public String name()
     {
-        return "name";
+        String nameOfArtifact;
+        
+        switch (this.number)
+        {
+            case 1:
+                nameOfArtifact = "Beaker";
+                break;
+            default:
+                nameOfArtifact = "Unknown";
+                break;
+        }
+        
+        return nameOfArtifact;
     }
     
     @Override
