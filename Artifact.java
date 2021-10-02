@@ -17,6 +17,9 @@ public class Artifact extends Treasure
             case 1:
                 nameOfArtifact = "Beaker";
                 break;
+            case 5:
+                nameOfArtifact = "Anthropomorphic Pendant";
+                break;
             default:
                 nameOfArtifact = "Unknown";
                 break;
