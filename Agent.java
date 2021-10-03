@@ -7,6 +7,16 @@ public abstract class Agent
     protected int gems;
     protected int gemsInTent;
     protected ArrayList<Artifact> ownedArtifact;
+    
+    public Agent(int type)
+    {
+        this.type = type;
+    }
+    
+    public int getType()
+    {
+        return this.type;
+    }
 
     public int getGems()
     {
