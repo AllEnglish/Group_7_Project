@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public abstract class Agent
 {
+    protected final int type;
     protected boolean status;
     protected int gems;
     protected int gemsInTent;
