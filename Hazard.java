@@ -18,13 +18,13 @@ public class Hazard extends Card
             case 2:
                 nameOfHazard = "Spiders";
                 break;
-            case 2:
+            case 3:
                 nameOfHazard = "Mummy";
                 break;
-            case 2:
+            case 4:
                 nameOfHazard = "Curse";
                 break;
-            case 2:
+            case 5:
                 nameOfHazard = "Rockslide Trap";
                 break;
             default:
