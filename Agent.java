@@ -20,7 +20,7 @@ public abstract class Agent
     
     public boolean isInExploring()
     {
-        return this.isExploring;
+        return this.inExploring;
     }
 
     public int getGems()
