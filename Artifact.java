@@ -41,6 +41,6 @@ public class Artifact extends Treasure
     public void share(ArrayList<Agent> receivers)
     {
         if (receivers.size() == 1 && !receivers.get(0).status)
-            receivers.get(0).ownedArtifact.add(this);
+            receivers.get(0).possessionOfArtifacts.add(this);
     }
 }
