@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Agent
 {
     protected final int type;
-    protected boolean status;
+    protected boolean inExploring;
     protected int gems;
     protected int gemsInsideTent;
     protected ArrayList<Artifact> possessionOfArtifacts;
