@@ -5,8 +5,8 @@ public abstract class Agent
     protected final int type;
     protected boolean status;
     protected int gems;
-    protected int gemsInTent;
-    protected ArrayList<Artifact> ownedArtifact;
+    protected int gemsInsideTent;
+    protected ArrayList<Artifact> PossessionOfArtifacts;
     
     public Agent(int type)
     {
@@ -28,14 +28,14 @@ public abstract class Agent
         this.gems = gems;
     }
     
-    public int getGemsInTent()
+    public int getGemsInsideTent()
     {
-        return this.gemsInTent;
+        return this.gemsInsideTent;
     }
     
-    public void setGemsInTent(int gemsInTent)
+    public void setGemsInsideTent(int gemsInsideTent)
     {
-        this.gemsInTent = gemsInTent;
+        this.gemsInsideTent = gemsInsideTent;
     }
     
     public void addGems(int gems)
@@ -43,9 +43,9 @@ public abstract class Agent
         this.gems += gems;
     }
 
-    public void putGemsIntoTent()
+    public void storeGemsIntoTent()
     {
-        this.gemsInTent += this.gems;
+        this.gemsInsideTent += this.gems;
         this.gems = 0;
     }
 
