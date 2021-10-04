@@ -17,6 +17,11 @@ public abstract class Agent
     {
         return this.type;
     }
+    
+    public boolean isInExploring()
+    {
+        return this.isExploring;
+    }
 
     public int getGems()
     {
