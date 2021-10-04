@@ -6,7 +6,7 @@ public abstract class Agent
     protected boolean status;
     protected int gems;
     protected int gemsInsideTent;
-    protected ArrayList<Artifact> PossessionOfArtifacts;
+    protected ArrayList<Artifact> possessionOfArtifacts;
     
     public Agent(int type)
     {
