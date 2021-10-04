@@ -63,6 +63,15 @@ public abstract class Agent
     {
         this.gems = 0;
     }
+    
+    // the name of this method and it's varible are temporary
+    public int total()
+    {
+        int xv = 0;
+        for (Artifact af : this.possessionOfArtifacts)
+            xv += af.getValue();
+        return this.gemsInsideTent + xv;
+    }
 
     public abstract void act();
 }
