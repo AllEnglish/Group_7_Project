@@ -22,6 +22,11 @@ public abstract class Agent
     {
         return this.inExploring;
     }
+    
+    public void setInExploring(boolean inExploring)
+    {
+        this.inExploring = inExploring;
+    }
 
     public int getGems()
     {
