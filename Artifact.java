@@ -40,7 +40,7 @@ public class Artifact extends Treasure
     @Override
     public void share(ArrayList<Agent> receivers)
     {
-        if (receivers.size() == 1 && !receivers.get(0).status)
+        if (receivers.size() == 1 && !receivers.get(0).isInExploring())
             receivers.get(0).possessionOfArtifacts.add(this);
     }
 }
