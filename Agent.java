@@ -59,9 +59,10 @@ public abstract class Agent
         this.gems = 0;
     }
 
-    public void lostAllGems()
+    public void flee()
     {
         this.gems = 0;
+        this.inExploring = false;
     }
     
     // the name of this method and it's varible are temporary
