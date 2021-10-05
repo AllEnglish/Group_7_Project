@@ -60,7 +60,7 @@ public class Game implements Runnable
         this.deck.add(new Gemstone(11, 17));
     }
 
-    public void deckShffule()
+    public void deckShuffle()
     {
         Collections.shuffle(this.deck);
     }
