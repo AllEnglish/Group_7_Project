@@ -32,7 +32,7 @@ public class Game implements Runnable
     {
         boolean isAllBack = false;
         for (Player p : this.playerlist)
-            isAllBack |= p.status;
+            isAllBack |= p.isInExploring();
         return !isAllBack ;
     }
 }
