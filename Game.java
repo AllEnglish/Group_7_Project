@@ -22,7 +22,7 @@ public class Game implements Runnable
         System.out.println("HI");
         this.deckShuffle();
         for (Card c : this.deck)
-            System.out.println(c.getNumber() + " ");
+            System.out.print(c.name() + " " + c.getNumber());
     }
     
     private void initializeDeck()
