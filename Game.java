@@ -3,19 +3,19 @@ import java.util.Collections;
 public class Game implements Runnable
 {
     protected int round;
-	ArrayList<Agent> playerList = new ArrayList<>();
-	ArrayList<Card> deck = new ArrayList<>();
-	ArrayList<Card> fold = new ArrayList<>();
+    ArrayList<Agent> playerList = new ArrayList<>();
+    ArrayList<Card> deck = new ArrayList<>();
+    ArrayList<Card> fold = new ArrayList<>();
     ArrayList<Card> path = new ArrayList<>();
 
-	public Game()
-	{
-		this.number = number;
-	}
+    public Game()
+    {
+        this.number = number;
+    }
 
-	public void deckShffule()
-	{
-		Collections.shuffle(this.deck);
+    public void deckShffule()
+    {
+        Collections.shuffle(this.deck);
     }
 
     public void flop()
