@@ -46,4 +46,10 @@ public class Artifact extends Treasure
         if (receivers.size() == 1 && !receivers.get(0).isInExploring())
             receivers.get(0).possessionOfArtifacts.add(this);
     }
+    
+    @Override
+    public String toString()
+    {
+        return String.format("%s <Artifact %d with value %d>", this.name(), this.number, this.value);
+    }
 }
