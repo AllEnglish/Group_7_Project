@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game implements Runnable
@@ -10,7 +11,7 @@ public class Game implements Runnable
 
     public Game(int number)
     {
-        this.number = number;
+        // this.number = number;
     }
 
     public void deckShffule()
