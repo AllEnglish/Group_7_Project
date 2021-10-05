@@ -7,19 +7,9 @@ public class Player extends Agent
         super(type);
     }
     
-    // 
+    @Override
     public void act()
     {
-        Scanner keyboard = new Scanner(System.in);
-        String test = keyboard.nextLine();
-        
-        if(test.equals("y"))
-        {
-            setInExploring(true);
-        }
-        else
-        {
-            setInExploring(false);
-        }
+        setInExploring(new Scanner(System.in).nextLine().equals("y"));
     }
 }
