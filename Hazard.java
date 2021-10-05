@@ -34,4 +34,10 @@ public class Hazard extends Card
         
         return nameOfHazard;
     }
+    
+    @Override
+    public String toString()
+    {
+        return this.name() + " <Hazard " + this.number + ">";
+    }
 }
