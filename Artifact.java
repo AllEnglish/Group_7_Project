@@ -17,19 +17,19 @@ public class Artifact extends Treasure
         
         switch (this.number)
         {
-            case 1:
+            case 0:
                 nameOfArtifact = "King Tut's Dagger";
                 break;
-            case 2:
+            case 1:
                 nameOfArtifact = "Ankh";
                 break;
-            case 3:
+            case 2:
                 nameOfArtifact = "Falcon Pectoral";
                 break;
-            case 4:
+            case 3:
                 nameOfArtifact = "Crook and Flail";
                 break;
-            case 5:
+            case 4:
                 nameOfArtifact = "Mask of Tutankhamun";
                 break;
             default:
