@@ -13,6 +13,12 @@ public class Game implements Runnable
     {
         // this.number = number;
     }
+    
+    @Override
+    public void run()
+    {
+        
+    }
 
     public void deckShffule()
     {
