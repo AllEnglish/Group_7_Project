@@ -8,7 +8,7 @@ public class Game implements Runnable
     ArrayList<Card> fold = new ArrayList<>();
     ArrayList<Card> path = new ArrayList<>();
 
-    public Game()
+    public Game(int number)
     {
         this.number = number;
     }
