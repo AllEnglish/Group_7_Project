@@ -10,15 +10,12 @@ public class Computer extends Agent
     // 
     public void act()
     {
-/*        if(Math.random() < 0.5)
-        {
+        /*
+        if (Math.random() < 0.5)
             setInExploring(true);
-        }
         else
-        {
             setInExploring(false);
-        }                               */
-        
+        */       
         setInExploring(Math.random() < 0.5);
     }
 }
