@@ -19,6 +19,25 @@ public class Game implements Runnable
     {
         
     }
+    
+    private void initializeDeck()
+    {
+        this.deck.add(new Hazard(0));
+        this.deck.add(new Hazard(0));
+        this.deck.add(new Hazard(0));
+        this.deck.add(new Hazard(1));
+        this.deck.add(new Hazard(1));
+        this.deck.add(new Hazard(1));
+        this.deck.add(new Hazard(2));
+        this.deck.add(new Hazard(2));
+        this.deck.add(new Hazard(2));
+        this.deck.add(new Hazard(3));
+        this.deck.add(new Hazard(3));
+        this.deck.add(new Hazard(3));
+        this.deck.add(new Hazard(4));
+        this.deck.add(new Hazard(4));
+        this.deck.add(new Hazard(4));
+    }
 
     public void deckShffule()
     {
@@ -35,7 +54,7 @@ public class Game implements Runnable
         return this.round;
     }
 
-    public boolean checkAllBack()
+    public boolean isEveryoneBack()
     {
         boolean isAllBack = false;
         for (Agent p : this.playerList)
