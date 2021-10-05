@@ -10,16 +10,15 @@ public class Computer extends Agent
     // 
     public void act()
     {
-        Scanner keyboard = new Scanner(System.in);
-        String test = keyboard.nextLine();
-        
-        if(test.equals("y"))
+/*        if(Math.random() < 0.5)
         {
             setInExploring(true);
         }
         else
         {
             setInExploring(false);
-        }
+        }                               */
+        
+        setInExploring(Math.random() < 0.5);
     }
 }
