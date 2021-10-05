@@ -2,9 +2,12 @@ import java.util.ArrayList;
 
 public class Artifact extends Treasure
 {
+    protected boolean takenAway;
+    
     public Artifact(int number, int value)
     {
         super(number, value);
+        this.takenAway = false;
     }
     
     @Override
