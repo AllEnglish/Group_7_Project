@@ -1,8 +1,7 @@
-public class Player{
-    
+public class Player extends Agent
+{    
     public Player()
     {
         
     }
-
 }
