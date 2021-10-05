@@ -4,14 +4,15 @@ import java.util.Collections;
 public class Game implements Runnable
 {
     protected int round;
-    ArrayList<Agent> playerList = new ArrayList<>();
-    ArrayList<Card> deck = new ArrayList<>();
-    ArrayList<Card> fold = new ArrayList<>();
-    ArrayList<Card> path = new ArrayList<>();
+    protected ArrayList<Agent> playerList = new ArrayList<>();
+    protected ArrayList<Card> deck;
+    protected ArrayList<Card> fold = new ArrayList<>();
+    protected ArrayList<Card> path = new ArrayList<>();
 
     public Game(int number)
     {
         // this.number = number;
+        this.deck = new ArrayList<>();
     }
     
     @Override
@@ -19,6 +20,8 @@ public class Game implements Runnable
     {
         this.initializeDeck();
         System.out.println("HI");
+        for (Card c : this.deck)
+            System.out.println(c.getNumber() + " ");
     }
     
     private void initializeDeck()
