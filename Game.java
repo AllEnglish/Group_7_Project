@@ -82,4 +82,40 @@ public class Game implements Runnable
             isAllBack |= p.isInExploring();
         return !isAllBack ;
     }
+    
+    public Agent findWinner()
+    {
+        int maxScore = 0;
+        int index;
+        int artifactValue = 0;
+        
+        for (Artifact artifact : this.playerList.get(i).possessionOfArtifacts)
+            artifactValue += artifact.getValue();
+        maxScore =  this.playerList.get(i).getGemsInsideTent() + artifactValue;    
+        
+        for(int i = 1 ; i < this.playerList.size() ; i++)
+        {
+            int artifactValueCheck = 0;
+            for (Artifact artifact : this.playerList.get(i).possessionOfArtifacts)
+                artifactValueCheck += artifact.getValue();
+            if (this.playerList.get(i).getGemsInsideTent() + artifactValueCheck > maxScore)
+            {
+                maxScore = this.playerList.get(i).getGemsInsideTent() + artifactValueCheck;
+                index = i;
+            }
+            return this.playerList.get(index);     
+        }        
+    }
+/*    
+    public Agent findWinner()
+    {
+        int index;
+        for(int i = 1 ; i < this.playerList.size() ; i++)
+        {
+            if (this.playerList.get(i).total() > this.playerList.get(i - 1).total())
+                index = i;
+        }
+        return this.playerList.get(index);
+    }                                                   */
+    
 }
