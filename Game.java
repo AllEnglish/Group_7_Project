@@ -89,9 +89,9 @@ public class Game implements Runnable
         int index;
         int artifactValue = 0;
         
-        for (Artifact artifact : this.playerList.get(i).possessionOfArtifacts)
+        for (Artifact artifact : this.playerList.get(0).possessionOfArtifacts)
             artifactValue += artifact.getValue();
-        maxScore =  this.playerList.get(i).getGemsInsideTent() + artifactValue;    
+        maxScore =  this.playerList.get(0).getGemsInsideTent() + artifactValue;    
         
         for(int i = 1 ; i < this.playerList.size() ; i++)
         {
