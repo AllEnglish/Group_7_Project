@@ -12,19 +12,19 @@ public class Hazard extends Card
         
         switch (this.number)
         {
-            case 1:
+            case 0:
                 nameOfHazard = "Booby Trap";
                 break;
-            case 2:
+            case 1:
                 nameOfHazard = "Spiders";
                 break;
-            case 3:
+            case 2:
                 nameOfHazard = "Mummy";
                 break;
-            case 4:
+            case 3:
                 nameOfHazard = "Curse";
                 break;
-            case 5:
+            case 4:
                 nameOfHazard = "Rockslide Trap";
                 break;
             default:
