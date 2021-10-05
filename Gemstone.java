@@ -30,4 +30,10 @@ public class Gemstone extends Treasure
         for (Agent receiver : receivers)
             receiver.addGems(oneShare);
     }
+    
+    @Override
+    public String toString()
+    {
+        return String.format("%s <Gemstone %d with value %d/%d>", this.name(), this.number, this.valueOfLeftover, this.value);
+    }
 }
