@@ -20,20 +20,19 @@ public class Game implements Runnable
 
     public void flop()
     {
-	    this.path.add(this.deck.remove(0));
+        this.path.add(this.deck.remove(0));
     }
 
     public int getRound()
     {
-	    return this.round;
+        return this.round;
     }
 
     public boolean checkAllBack()
     {
-	    boolean isAllBack = false;
-	    for (Player p : this.playerlist)
-			    isAllBack |= p.status;
+        boolean isAllBack = false;
+        for (Player p : this.playerlist)
+            isAllBack |= p.status;
         return !isAllBack ;
     }
-
 }
