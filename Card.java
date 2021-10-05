@@ -18,7 +18,7 @@ public abstract class Card
     public boolean equals(Object obj)
     {
         if (obj instanceof Card)
-            return this.getClass() == obj.getClass() && this.number == ((Card) obj).number;
+            return this.getClass() == obj.getClass() && this.number == ((Card)obj).number;
         else
             return false;
     }
