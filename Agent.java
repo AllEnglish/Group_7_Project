@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Agent
+public abstract class Agent // implements Comparable<Agent>
 {
     protected final int type;
     protected boolean inExploring;
