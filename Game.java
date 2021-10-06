@@ -110,13 +110,18 @@ public class Game implements Runnable
        
     public Agent[] findWinner()
     {
-        int index;
-        for(int i = 1 ; i < this.playerList.size() ; i++)
-        {
-            if (this.playerList.get(i).total() > this.playerList.get(i - 1).total())
-                index = i;
-        }
-        return this.playerList.get(index);
+        int maxScore = 0;
+        ArrayList<Agent[]> winner = new ArrayList<>;
+        
+        for (Agent people : this.playerList)
+            if (people.total() > maxScore)
+                maxScore = people.total();    
+         for(int i = 0 ; i < this.playerList.size() ; i++)
+         {
+            if (maxScore == this.playerList.get(i).total())
+                winner.add(this.playerList.get(i));
+         }
+        return winner.toArray(new Agent[winner.size()]);
     }
     
 }
