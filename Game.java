@@ -82,7 +82,7 @@ public class Game implements Runnable
             isAllBack |= p.isInExploring();
         return !isAllBack ;
     }
-    
+    /*
     public Agent findWinner()
     {
         int maxScore = 0;
@@ -106,8 +106,8 @@ public class Game implements Runnable
             return this.playerList.get(index);     
         }        
     }
-    
-    /*    
+    */
+       
     public Agent[] findWinner()
     {
         int index;
@@ -118,5 +118,5 @@ public class Game implements Runnable
         }
         return this.playerList.get(index);
     }
-    */
+    
 }
