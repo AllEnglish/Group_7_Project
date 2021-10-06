@@ -106,8 +106,9 @@ public class Game implements Runnable
             return this.playerList.get(index);     
         }        
     }
-/*    
-    public Agent findWinner()
+    
+    /*    
+    public Agent[] findWinner()
     {
         int index;
         for(int i = 1 ; i < this.playerList.size() ; i++)
@@ -116,6 +117,6 @@ public class Game implements Runnable
                 index = i;
         }
         return this.playerList.get(index);
-    }                                                   */
-    
+    }
+    */
 }
