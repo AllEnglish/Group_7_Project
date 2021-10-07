@@ -56,7 +56,7 @@ public class Game implements Runnable
 
                     roomOfTreasure.share(p);
                 }
-                else if (currentRoom instanceof Hazard)
+                else if (room instanceof Hazard)
                 {
                     Hazard roomOfHazard = (Hazard)room;
                     // do something...
