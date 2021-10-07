@@ -43,42 +43,39 @@ public class Game implements Runnable
                 this.revealNextRoom();
                 System.out.println();
                 
-                Card currentRoom = this.path.get(this.path.size() - 1);
+                Card room = this.path.get(this.path.size() - 1);
                 
-                if (currentRoom instanceof Treasure)
+                if (room instanceof Treasure)
                 {
-                    Treasure roomOfTreasure = (Treasure)currentRoom;
-                    
-                    ArrayList<Agent> p = new ArrayList<>();
+                    Treasure roomOfTreasure = (Treasure)room;
+                    ArrayList<Agent> receivers = new ArrayList<>();
                     
                     for (Agent explorer : this.explorers)
                         if (explorer.isInExploring())
-                            p.add(explorer);
+                            receivers.add(explorer);
 
                     roomOfTreasure.share(p);
                 }
                 else if (currentRoom instanceof Hazard)
                 {
-                    Hazard roomOfHazard = (Hazard)currentRoom;
+                    Hazard roomOfHazard = (Hazard)room;
                     // do something...
                     // check if there is a same type of hazard on the path
                 }
                 
+                // hint dialog ------------------------
                 System.out.println(this.path);
-
                 for (Agent explorer : this.explorers)
                     if (explorer.isInExploring())
                         System.out.println("explorer " + explorer.getType() + " owns " + explorer.getGems() + " gem(s).");
-
                 System.out.println("[?] asking everyone stay or leave.");
+                // end of hint ------------------------
 
                 for (Agent explorer : this.explorers)
-                {
                     if (explorer.isInExploring())
                         explorer.act();
-                }
 
-                // Hint dialog, do not reserve it
+                // hint dialog ------------------------
                 if (this.isSomeoneExploring())
                 {
                     for (Agent explorer : this.explorers)
@@ -92,8 +89,7 @@ public class Game implements Runnable
                     }
                     catch (InterruptedException e) {}
                 }
-                else
-                    System.out.println("game over! all of the explorers went back to the camp.");
+                // end of hint ------------------------
             }
             while (this.isSomeoneExploring());
 
