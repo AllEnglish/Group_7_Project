@@ -26,7 +26,9 @@ public class Game implements Runnable
             System.out.println("round " + (currentRound + 1));
             this.deckShuffle();
             
-            for (int _ = 0; _ < this.deck.size(); _++)
+            int $_$_$ = this.deck.size();
+            
+            for (int $_ = 0; $_ < $_$_$; $_++)
             {
                 this.flop();
                 System.out.println(this.path);
