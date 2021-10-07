@@ -11,6 +11,7 @@ public abstract class Agent // implements Comparable<Agent>
     public Agent(int type)
     {
         this.type = type;
+        this.isInExploring = false;
     }
     
     public int getType()
