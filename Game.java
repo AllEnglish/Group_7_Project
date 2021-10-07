@@ -68,13 +68,18 @@ public class Game implements Runnable
                 }
 
                 // Hint dialog, do not reserve it
-                if (!this.isSomeoneExploring())
+                if (this.isSomeoneExploring())
                 {
                     for (Agent explorer : this.explorers)
                         if (explorer.isInExploring())
                             System.out.print(explorer.getType() + " ");
                     System.out.print("want to keep exploring.");
                     System.out.println();
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch (InterruptedException e) {}
                 }
             }
             while (this.isSomeoneExploring());
