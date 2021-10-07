@@ -71,7 +71,7 @@ public class Game implements Runnable
                     if (explorer.isInExploring())
                         System.out.print(explorer.getType() + " ");
                 System.out.print("want to keep exploring.");
-                System.out.print();
+                System.out.println();
             }
             while (this.isSomeoneExploring());
 
