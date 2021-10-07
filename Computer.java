@@ -7,15 +7,17 @@ public class Computer extends Agent
         super(type);
     }
     
-    // 
     public void act()
     {
-        /*
-        if (Math.random() < 0.5)
-            setInExploring(true);
-        else
-            setInExploring(false);
-        */       
-        setInExploring(Math.random() < 0.5);
+        try
+        {
+            Thread.sleep((int)(Math.random() * 5000));
+        }
+        catch (InterruptedException e)
+        {
+        }
+        
+        this.setInExploring(Math.random() < 0.5);
+        System.out.println("explorer " + this.type + " done!");
     }
 }
