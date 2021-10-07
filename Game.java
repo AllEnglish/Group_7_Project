@@ -40,12 +40,14 @@ public class Game implements Runnable
             
             do
             {     
-                this.flop();
+                this.revealNextRoom();
                 System.out.println();
                 
-                if (this.path.get(this.path.size() - 1) instanceof Treasure)
+                Card currentRoom = this.path.get(this.path.size() - 1);
+                
+                if (currentRoom instanceof Treasure)
                 {
-                    Treasure room = (Treasure)this.path.get(this.path.size() - 1);
+                    Treasure roomOfTreasure = (Treasure)currentRoom;
                     
                     ArrayList<Agent> p = new ArrayList<>();
                     
@@ -53,11 +55,13 @@ public class Game implements Runnable
                         if (explorer.isInExploring())
                             p.add(explorer);
 
-                    room.share(p);
+                    roomOfTreasure.share(p);
                 }
-                else if (this.path.get(this.path.size() - 1) instanceof Hazard)
+                else if (currentRoom instanceof Hazard)
                 {
+                    Hazard roomOfHazard = (Hazard)currentRoom;
                     // do something...
+                    // check if there is a same type of hazard on the path
                 }
                 
                 System.out.println(this.path);
@@ -137,7 +141,7 @@ public class Game implements Runnable
         Collections.shuffle(this.deck);
     }
 
-    public void flop()
+    public void revealNextRoom()
     {
         this.path.add(this.deck.remove(0));
     }
