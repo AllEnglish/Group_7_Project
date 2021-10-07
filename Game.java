@@ -44,15 +44,15 @@ public class Game implements Runnable
                 
                 if (this.path.get(this.path.size() - 1) instanceof Treasure)
                 {
+                    Treasure room = (Treasure)this.path.get(this.path.size() - 1);
+                    
                     ArrayList<Agent> p = new ArrayList<>();
+                    
                     for (Agent explorer : this.explorers)
-                    {
                         if (explorer.isInExploring())
-                        {
                             p.add(explorer);
-                        }
-                    }
-                    ((Treasure)this.path.get(this.path.size() - 1)).share(p);
+
+                    room.share(p);
                 }
                 
                 for (Agent explorer : this.explorers)
@@ -69,7 +69,6 @@ public class Game implements Runnable
                     if (explorer.isInExploring())
                         System.out.println(explorer.getType() + " wants to keep exploring.");
                 }
-                
             }
             while (this.isSomeoneExploring());
             
