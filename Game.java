@@ -47,7 +47,7 @@ public class Game implements Runnable
                     if (a.isInExploring())
                     {
                         a.act();
-                        System.out.println(a.getType() + " is still suffering.");
+                        System.out.println(a.getType() + " has " + a.getGems() + " gem(s).");
                     }
                 }
             }
