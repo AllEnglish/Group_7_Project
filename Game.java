@@ -35,7 +35,6 @@ public class Game implements Runnable
                 explorer.setInExploring(true);
             
             System.out.println("round " + (currentRound + 1));
-            System.out.println();
             this.deckShuffle();
             
             do
