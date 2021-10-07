@@ -54,22 +54,18 @@ public class Game implements Runnable
                     ((Treasure)this.path.get(this.path.size() - 1)).share(p);
                 }
                 
-                System.out.println("asking everyone stay or leave.");
                 for (Agent explorer : this.explorers)
-                {
-                    if (explorer.isInExploring())
-                    {
-                        explorer.act();
-                        System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
-                    }
-                }
+                    System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
                 
+                System.out.println("asking everyone stay or leave.");
+                              
                 for (Agent explorer : this.explorers)
                 {
                     if (explorer.isInExploring())
-                    {
+                        explorer.act();
+                
+                    if (explorer.isInExploring())
                         System.out.println(explorer.getType() + " wants to keep exploring.");
-                    }
                 }
                 
             }
