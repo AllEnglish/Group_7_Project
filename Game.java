@@ -67,11 +67,15 @@ public class Game implements Runnable
                         explorer.act();
                 }
 
-                for (Agent explorer : this.explorers)
-                    if (explorer.isInExploring())
-                        System.out.print(explorer.getType() + " ");
-                System.out.print("want to keep exploring.");
-                System.out.println();
+                // Hint part, should be delete
+                if (!this.isSomeoneExploring())
+                {
+                    for (Agent explorer : this.explorers)
+                        if (explorer.isInExploring())
+                            System.out.print(explorer.getType() + " ");
+                    System.out.print("want to keep exploring.");
+                    System.out.println();
+                }
             }
             while (this.isSomeoneExploring());
 
