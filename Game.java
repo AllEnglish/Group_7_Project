@@ -31,7 +31,7 @@ public class Game implements Runnable
             for (int $_ = 0; $_ < $_$_$; $_++)
             {
                 this.flop();
-                System.out.println(this.path);
+                System.out.println($_$_$ + this.path);
                 //System.out.println(c);
             }
             break;
