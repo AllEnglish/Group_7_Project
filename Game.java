@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Game implements Runnable
 {
     protected int round;
-    protected ArrayList<Agent> explorers = new ArrayList<>();
+    protected ArrayList<Agent> explorers;
     protected ArrayList<Card> deck;
     protected ArrayList<Card> fold = new ArrayList<>();
     protected ArrayList<Card> path = new ArrayList<>();
@@ -111,10 +111,7 @@ public class Game implements Runnable
     {
         boolean b = false;
         for (Agent p : this.explorers)
-        {
-            System.out.println(b + " or equal " + p.isInExploring());
             b |= p.isInExploring();
-        }
         return b;
     }
     /*
