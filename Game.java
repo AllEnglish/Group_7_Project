@@ -55,6 +55,10 @@ public class Game implements Runnable
 
                     room.share(p);
                 }
+                else if (this.path.get(this.path.size() - 1) instanceof Hazard)
+                {
+                    // do something...
+                }
                 
                 System.out.println(this.path);
 
