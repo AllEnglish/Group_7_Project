@@ -54,28 +54,30 @@ public class Game implements Runnable
 
                     room.share(p);
                 }
-                
+
                 for (Agent explorer : this.explorers)
                     if (explorer.isInExploring())
                         System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
-                
+
                 System.out.println("asking everyone stay or leave.");
-                              
+
                 for (Agent explorer : this.explorers)
                 {
                     if (explorer.isInExploring())
                         explorer.act();
-                
-                    if (explorer.isInExploring())
-                        System.out.println(explorer.getType() + " wants to keep exploring.");
                 }
+
+                for (Agent explorer : this.explorers)
+                    if (explorer.isInExploring())
+                        System.out.print(explorer.getType() + " ");
+                System.out.print("want to keep exploring.");
             }
             while (this.isSomeoneExploring());
-            
+
             break;
         }
     }
-    
+
     private void initializeDeck()
     {
         this.deck.add(new Hazard(0));
