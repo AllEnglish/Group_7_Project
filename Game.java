@@ -19,7 +19,9 @@ public class Game implements Runnable
         this.explorers.add(new Computer(0));
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
+        this.explorers.add(new Computer(3));
         this.explorers.add(new Computer(4));
+        this.explorers.add(new Computer(5));
     }
     
     @Override
@@ -57,7 +59,7 @@ public class Game implements Runnable
 
                 for (Agent explorer : this.explorers)
                     if (explorer.isInExploring())
-                        System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
+                        System.out.println("explorer " + explorer.getType() + " owns " + explorer.getGems() + " gem(s).");
 
                 System.out.println("[?] asking everyone stay or leave.");
 
@@ -77,7 +79,7 @@ public class Game implements Runnable
                     System.out.println();
                     try
                     {
-                        Thread.sleep(1000);
+                        Thread.sleep(2000);
                     }
                     catch (InterruptedException e) {}
                 }
