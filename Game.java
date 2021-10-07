@@ -38,6 +38,9 @@ public class Game implements Runnable
                 this.flop();
                 System.out.println(this.path);
                 //System.out.println(c);
+                
+                for (Agent a : this.explorers)
+                    a.act();
             }
             while (!this.isEveryoneBack());
             
