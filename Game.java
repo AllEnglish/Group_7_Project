@@ -29,7 +29,7 @@ public class Game implements Runnable
             for (Card c : this.deck)
             {
                 this.flop();
-                System.out.println(this.path());
+                System.out.println(this.path);
                 //System.out.println(c);
             }
             break;
