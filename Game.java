@@ -41,8 +41,9 @@ public class Game implements Runnable
                 
                 for (Agent a : this.explorers)
                 {
-                    a.act();
-                    System.out.println(a.getType() + " " + a.isInExploring());
+                    if (a.isInExploring())
+                        a.act();
+                    System.out.println(a.getType() + " is still suffering.");
                 }
             }
             while (!this.isEveryoneBack());
