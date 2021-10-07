@@ -84,7 +84,7 @@ public class Game implements Runnable
                     catch (InterruptedException e) {}
                 }
                 else
-                    System.out.print("game over! all of the explorers went back to the camp.");
+                    System.out.println("game over! all of the explorers went back to the camp.");
             }
             while (this.isSomeoneExploring());
 
