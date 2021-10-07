@@ -9,9 +9,9 @@ public class Game implements Runnable
     protected ArrayList<Card> fold = new ArrayList<>();
     protected ArrayList<Card> path = new ArrayList<>();
 
-    public Game(int number)
+    public Game(int round)
     {
-        // this.number = number;
+        this.round = round;
         this.deck = new ArrayList<>();
     }
     
@@ -20,9 +20,14 @@ public class Game implements Runnable
     {
         this.initializeDeck();
         System.out.println("HI");
-        this.deckShuffle();
-        for (Card c : this.deck)
-            System.out.println(c);
+        
+        for (int currentRound = 0; currentRound < this.round; currentRound++)
+        {
+            System.out.println("round " + (currentRound + 1));
+            this.deckShuffle();
+            for (Card c : this.deck)
+                System.out.println(c);
+        }
     }
     
     private void initializeDeck()
@@ -111,7 +116,7 @@ public class Game implements Runnable
     public Agent[] findWinner()
     {
         int maxScore = 0;
-        ArrayList<Agent[]> winner = new ArrayList<>;
+        ArrayList<Agent[]> winner = new ArrayList<>();
         
         for (Agent people : this.playerList)
             if (people.total() > maxScore)
