@@ -38,6 +38,7 @@ public class Hazard extends Card
     @Override
     public String toString()
     {
-        return this.name() + " <Hazard " + this.number + ">";
+        return "\u001B[31m" + this.name() + " <Hazard " + this.number + ">\u001B[0m";
+        // return this.name() + " <Hazard " + this.number + ">";
     }
 }
