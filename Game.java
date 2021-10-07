@@ -42,8 +42,10 @@ public class Game implements Runnable
                 for (Agent a : this.explorers)
                 {
                     if (a.isInExploring())
+                    {
                         a.act();
-                    System.out.println(a.getType() + " is still suffering.");
+                        System.out.println(a.getType() + " is still suffering.");
+                    }
                 }
             }
             while (this.isSomeoneExploring());
@@ -106,7 +108,10 @@ public class Game implements Runnable
     {
         boolean b = false;
         for (Agent p : this.explorers)
+        {
+            System.out.println(b + " or equal " + p.isInExploring());
             b |= p.isInExploring();
+        }
         return b;
     }
     /*
