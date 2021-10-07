@@ -46,7 +46,7 @@ public class Game implements Runnable
                     System.out.println(a.getType() + " is still suffering.");
                 }
             }
-            while (!this.isEveryoneBack());
+            while (this.isSomeoneExploring());
             
             break;
         }
@@ -102,12 +102,12 @@ public class Game implements Runnable
         return this.round;
     }
 
-    public boolean isEveryoneBack()
+    public boolean isSomeoneExploring()
     {
-        boolean isAllBack = false;
+        boolean b = false;
         for (Agent p : this.explorers)
-            isAllBack |= p.isInExploring();
-        return !isAllBack ;
+            b |= p.isInExploring();
+        return b;
     }
     /*
     public Agent findWinner()
