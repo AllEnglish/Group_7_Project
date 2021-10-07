@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Game implements Runnable
 {
-    protected int round;
+    protected final int round;
     protected ArrayList<Agent> explorers;
     protected ArrayList<Card> deck;
     protected ArrayList<Card> fold = new ArrayList<>();
@@ -28,7 +28,6 @@ public class Game implements Runnable
     public void run()
     {
         this.initializeDeck();
-        System.out.println("HI");
         
         for (int currentRound = 0; currentRound < this.round; currentRound++)
         {
@@ -36,6 +35,7 @@ public class Game implements Runnable
                 explorer.setInExploring(true);
             
             System.out.println("round " + (currentRound + 1));
+            System.out.println();
             this.deckShuffle();
             
             do
