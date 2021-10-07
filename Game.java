@@ -25,8 +25,14 @@ public class Game implements Runnable
         {
             System.out.println("round " + (currentRound + 1));
             this.deckShuffle();
+            
             for (Card c : this.deck)
-                System.out.println(c);
+            {
+                this.flop();
+                System.out.println(this.path());
+                //System.out.println(c);
+            }
+            break;
         }
     }
     
