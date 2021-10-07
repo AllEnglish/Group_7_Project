@@ -41,7 +41,6 @@ public class Game implements Runnable
                 this.flop();
                 System.out.println(this.path);
                 
-                
                 if (this.path.get(this.path.size() - 1) instanceof Treasure)
                 {
                     ArrayList<Agent> p = new ArrayList<>();
@@ -55,16 +54,24 @@ public class Game implements Runnable
                     ((Treasure)this.path.get(this.path.size() - 1)).share(p);
                 }
                 
-                
-                for (Agent a : this.explorers)
+                System.out.println("asking everyone stay or leave.");
+                for (Agent explorer : this.explorers)
                 {
-                    
-                    if (a.isInExploring())
+                    if (explorer.isInExploring())
                     {
-                        a.act();
-                        System.out.println(a.getType() + " has " + a.getGems() + " gem(s).");
+                        explorer.act();
+                        System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
                     }
                 }
+                
+                for (Agent explorer : this.explorers)
+                {
+                    if (explorer.isInExploring())
+                    {
+                        System.out.println(explorer.getType() + " wants to keep exploring.")
+                    }
+                }
+                
             }
             while (this.isSomeoneExploring());
             
