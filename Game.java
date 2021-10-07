@@ -36,7 +36,7 @@ public class Game implements Runnable
             do
             {
                 this.flop();
-                System.out.println($_$_$ + " " + this.path);
+                System.out.println(this.path);
                 //System.out.println(c);
             }
             while (!this.isEveryoneBack());
