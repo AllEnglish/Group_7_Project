@@ -34,12 +34,12 @@ public class Game implements Runnable
                 explorer.setInExploring(true);
             
             System.out.println("round " + (currentRound + 1));
-            System.out.println();
             this.deckShuffle();
             
             do
-            {
+            {     
                 this.flop();
+                System.out.println();
                 System.out.println(this.path);
                 
                 if (this.path.get(this.path.size() - 1) instanceof Treasure)
