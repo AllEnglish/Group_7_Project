@@ -30,6 +30,9 @@ public class Game implements Runnable
         
         for (int currentRound = 0; currentRound < this.round; currentRound++)
         {
+            for (Agent explorer : this.explorers)
+                explorer.setInExploring(true);
+            
             System.out.println("round " + (currentRound + 1));
             this.deckShuffle();
             
