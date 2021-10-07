@@ -40,7 +40,10 @@ public class Game implements Runnable
                 //System.out.println(c);
                 
                 for (Agent a : this.explorers)
+                {
                     a.act();
+                    System.out.println(a.getType() + " " + a.isInExploring());
+                }
             }
             while (!this.isEveryoneBack());
             
