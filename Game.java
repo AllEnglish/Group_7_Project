@@ -54,7 +54,7 @@ public class Game implements Runnable
                         if (explorer.isInExploring())
                             receivers.add(explorer);
 
-                    roomOfTreasure.share(p);
+                    roomOfTreasure.share(receivers);
                 }
                 else if (room instanceof Hazard)
                 {
