@@ -40,10 +40,25 @@ public class Game implements Runnable
             {
                 this.flop();
                 System.out.println(this.path);
-                //System.out.println(c);
+                
+                
+                if (this.path.get(this.path.size() - 1) instanceof Treasure)
+                {
+                    ArrayList<Agent> p = new ArrayList<>();
+                    for (Agent explorer : this.explorers)
+                    {
+                        if (explorer.isInExploring())
+                        {
+                            p.add(explorer);
+                        }
+                    }
+                    ((Treasure)this.path.get(this.path.size() - 1)).share(p);
+                }
+                
                 
                 for (Agent a : this.explorers)
                 {
+                    
                     if (a.isInExploring())
                     {
                         a.act();
