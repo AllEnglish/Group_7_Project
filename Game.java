@@ -116,7 +116,7 @@ public class Game implements Runnable
     public Agent[] findWinner()
     {
         int maxScore = 0;
-        ArrayList<Agent[]> winner = new ArrayList<>();
+        ArrayList<Agent> winner = new ArrayList<>();
         
         for (Agent people : this.playerList)
             if (people.total() > maxScore)
