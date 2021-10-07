@@ -42,7 +42,6 @@ public class Game implements Runnable
             {     
                 this.flop();
                 System.out.println();
-                System.out.println(this.path);
                 
                 if (this.path.get(this.path.size() - 1) instanceof Treasure)
                 {
@@ -56,6 +55,8 @@ public class Game implements Runnable
 
                     room.share(p);
                 }
+                
+                System.out.println(this.path);
 
                 for (Agent explorer : this.explorers)
                     if (explorer.isInExploring())
