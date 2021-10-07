@@ -67,7 +67,7 @@ public class Game implements Runnable
                         explorer.act();
                 }
 
-                // Hint part, should be delete
+                // Hint dialog, do not reserve it
                 if (!this.isSomeoneExploring())
                 {
                     for (Agent explorer : this.explorers)
