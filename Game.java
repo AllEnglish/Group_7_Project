@@ -59,7 +59,7 @@ public class Game implements Runnable
                     if (explorer.isInExploring())
                         System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
 
-                System.out.println("asking everyone stay or leave.");
+                System.out.println("[?] asking everyone stay or leave.");
 
                 for (Agent explorer : this.explorers)
                 {
@@ -71,6 +71,7 @@ public class Game implements Runnable
                     if (explorer.isInExploring())
                         System.out.print(explorer.getType() + " ");
                 System.out.print("want to keep exploring.");
+                System.out.print();
             }
             while (this.isSomeoneExploring());
 
