@@ -56,7 +56,8 @@ public class Game implements Runnable
                 }
                 
                 for (Agent explorer : this.explorers)
-                    System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
+                    if (explorer.isInExploring())
+                        System.out.println(explorer.getType() + " has " + explorer.getGems() + " gem(s).");
                 
                 System.out.println("asking everyone stay or leave.");
                               
