@@ -12,7 +12,7 @@ public class Game implements Runnable
     public Game(int round)
     {
         this.round = round;
-        this.explorers = new new ArrayList<>();
+        this.explorers = new ArrayList<>();
         this.deck = new ArrayList<>();
         
         // just for testing
