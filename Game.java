@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Game implements Runnable
 {
     protected int round;
-    protected ArrayList<Agent> playerList = new ArrayList<>();
+    protected ArrayList<Agent> explorers = new ArrayList<>();
     protected ArrayList<Card> deck;
     protected ArrayList<Card> fold = new ArrayList<>();
     protected ArrayList<Card> path = new ArrayList<>();
@@ -12,7 +12,14 @@ public class Game implements Runnable
     public Game(int round)
     {
         this.round = round;
+        this.explorers = new new ArrayList<>();
         this.deck = new ArrayList<>();
+        
+        // just for testing
+        this.explorers.add(new Computer(0));
+        this.explorers.add(new Computer(1));
+        this.explorers.add(new Computer(2));
+        this.explorers.add(new Computer(4));
     }
     
     @Override
@@ -26,14 +33,14 @@ public class Game implements Runnable
             System.out.println("round " + (currentRound + 1));
             this.deckShuffle();
             
-            int $_$_$ = this.deck.size();
-            
-            for (int $_ = 0; $_ < $_$_$; $_++)
+            do
             {
                 this.flop();
                 System.out.println($_$_$ + " " + this.path);
                 //System.out.println(c);
             }
+            while (!this.isEveryoneBack());
+            
             break;
         }
     }
@@ -91,7 +98,7 @@ public class Game implements Runnable
     public boolean isEveryoneBack()
     {
         boolean isAllBack = false;
-        for (Agent p : this.playerList)
+        for (Agent p : this.explorers)
             isAllBack |= p.isInExploring();
         return !isAllBack ;
     }
@@ -126,13 +133,13 @@ public class Game implements Runnable
         int maxScore = 0;
         ArrayList<Agent> winner = new ArrayList<>();
         
-        for (Agent people : this.playerList)
+        for (Agent people : this.explorers)
             if (people.total() > maxScore)
                 maxScore = people.total();    
-         for(int i = 0 ; i < this.playerList.size() ; i++)
+         for(int i = 0 ; i < this.explorers.size() ; i++)
          {
-            if (maxScore == this.playerList.get(i).total())
-                winner.add(this.playerList.get(i));
+            if (maxScore == this.explorers.get(i).total())
+                winner.add(this.explorers.get(i));
          }
         return winner.toArray(new Agent[winner.size()]);
     }
