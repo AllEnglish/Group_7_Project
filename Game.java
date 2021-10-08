@@ -6,14 +6,15 @@ public class Game implements Runnable
     protected final int round;
     protected ArrayList<Agent> explorers;
     protected ArrayList<Card> deck;
-    protected ArrayList<Card> fold = new ArrayList<>();
-    protected ArrayList<Card> path = new ArrayList<>();
+    // protected ArrayList<Card> fold = new ArrayList<>();
+    protected ArrayList<Card> path;
 
     public Game(int round)
     {
         this.round = round;
         this.explorers = new ArrayList<>();
         this.deck = new ArrayList<>();
+        this.path = new ArrayList<>();
         
         // just for testing
         this.explorers.add(new Computer(0));
@@ -49,9 +50,8 @@ public class Game implements Runnable
                     Treasure roomOfTreasure = (Treasure)room;
                     ArrayList<Agent> receivers = new ArrayList<>();
                     
-                    for (Agent explorer : this.explorers)
-                        if (explorer.isInExploring())
-                            receivers.add(explorer);
+                    for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                        receivers.add(explorerWhoStay);
 
                     roomOfTreasure.share(receivers);
                 }
@@ -63,9 +63,8 @@ public class Game implements Runnable
                     {
                         if (roomOfHazard.equals(this.path.get(i)))
                         {
-                            for (Agent explorer : this.explorers)
-                                if (explorer.isInExploring())
-                                    explorer.flee();
+                            for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                                explorerWhoStay.flee();
                             System.out.println("[GG] " + roomOfHazard.name() + " happened!");
                             break;
                         }
@@ -77,22 +76,19 @@ public class Game implements Runnable
                 
                 // hint dialog ------------------------
                 System.out.println(this.path);
-                for (Agent explorer : this.explorers)
-                    if (explorer.isInExploring())
-                        System.out.println("explorer " + explorer.getType() + " owns " + explorer.getGems() + " gem(s).");
+                for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                    System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
-                for (Agent explorer : this.explorers)
-                    if (explorer.isInExploring())
-                        explorer.act();
+                for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                    explorerWhoStay.act();
 
                 // hint dialog ------------------------
                 if (this.isSomeoneExploring())
                 {
-                    for (Agent explorer : this.explorers)
-                        if (explorer.isInExploring())
-                            System.out.print(explorer.getType() + " ");
+                    for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                        System.out.print(explorerWhoStay.getType() + " ");
                     System.out.print("want to keep exploring.");
                     System.out.println();
                     try
@@ -171,44 +167,32 @@ public class Game implements Runnable
     {
         return this.round;
     }
+    
+    public ArrayList<Agent> getExplorersWhoStay()
+    {
+        ArrayList<Agent> explorersWhoStay = new ArrayList<>();
+        
+        for (Agent explorer : this.explorers)
+            if (explorer.isInExploring)
+                explorersWhoStay.add(explorer);
+                
+        return explorersWhoStay;
+    }
 
     public boolean isSomeoneExploring()
     {
         boolean find = false;
+        
         for (Agent explorer : this.explorers)
             find |= explorer.isInExploring();
+            
         return find;
     }
-    /*
-    public Agent findWinner()
-    {
-        int maxScore = 0;
-        int index;
-        int artifactValue = 0;
-        
-        for (Artifact artifact : this.playerList.get(0).possessionOfArtifacts)
-            artifactValue += artifact.getValue();
-        maxScore =  this.playerList.get(0).getGemsInsideTent() + artifactValue;    
-        
-        for(int i = 1 ; i < this.playerList.size() ; i++)
-        {
-            int artifactValueCheck = 0;
-            for (Artifact artifact : this.playerList.get(i).possessionOfArtifacts)
-                artifactValueCheck += artifact.getValue();
-            if (this.playerList.get(i).getGemsInsideTent() + artifactValueCheck > maxScore)
-            {
-                maxScore = this.playerList.get(i).getGemsInsideTent() + artifactValueCheck;
-                index = i;
-            }
-            return this.playerList.get(index);     
-        }        
-    }
-    */
        
-    public Agent[] findWinner()
+    public Agent[] findWinners()
     {
         int maxScore = 0;
-        ArrayList<Agent> winner = new ArrayList<>();
+        ArrayList<Agent> winners = new ArrayList<>();
         
         for (Agent people : this.explorers)
             if (people.total() > maxScore)
@@ -216,8 +200,8 @@ public class Game implements Runnable
          for(int i = 0 ; i < this.explorers.size() ; i++)
          {
             if (maxScore == this.explorers.get(i).total())
-                winner.add(this.explorers.get(i));
+                winners.add(this.explorers.get(i));
          }
-        return winner.toArray(new Agent[winner.size()]);
+        return winners.toArray(new Agent[winners.size()]);
     }
 }
