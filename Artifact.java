@@ -50,6 +50,7 @@ public class Artifact extends Treasure
     @Override
     public String toString()
     {
-        return String.format("%s <Artifact %d with value %d>", this.name(), this.number, this.value);
+        return String.format("<\u001B[33m%s\u001B[0m>", this.name());
+        // return String.format("%s <Artifact %d with value %d>", this.name(), this.number, this.value);
     }
 }
