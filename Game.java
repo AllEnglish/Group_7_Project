@@ -43,11 +43,11 @@ public class Game implements Runnable
                 this.revealNextRoom();
                 System.out.println();
                 
-                Card room = this.path.get(this.path.size() - 1);
+                Card currentRoom = this.path.get(this.path.size() - 1);
                 
-                if (room instanceof Treasure)
+                if (currentRoom instanceof Treasure)
                 {
-                    Treasure roomOfTreasure = (Treasure)room;
+                    Treasure roomOfTreasure = (Treasure)currentRoom;
                     ArrayList<Agent> receivers = new ArrayList<>();
                     
                     for (Agent explorerWhoStay : this.getExplorersWhoStay())
@@ -55,9 +55,9 @@ public class Game implements Runnable
 
                     roomOfTreasure.share(receivers);
                 }
-                else if (room instanceof Hazard)
+                else if (currentRoom instanceof Hazard)
                 {
-                    Hazard roomOfHazard = (Hazard)room;
+                    Hazard roomOfHazard = (Hazard)currentRoom;
 
                     for (int i = 0; i < this.path.size() - 1; i++)
                     {
@@ -69,9 +69,6 @@ public class Game implements Runnable
                             break;
                         }
                     }
-
-                    // do something...
-                    // check if there is a same type of hazard on the path
                 }
                 
                 // hint dialog ------------------------
@@ -81,8 +78,17 @@ public class Game implements Runnable
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
+                ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
+                 
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                    explorerWhoStay.act();
+                {
+                    explorerWhoStay.act();   
+                    if (!explorerWhoStay.isInExploring())
+                        explorersWhoChooseToGo.add(explorerWhoStay);
+                }
+                
+                for (Card room : this.path)
+                    room.share(explorersWhoChooseToGo);
 
                 // hint dialog ------------------------
                 if (this.isSomeoneExploring())
