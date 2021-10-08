@@ -18,7 +18,7 @@ public class Computer extends Agent
         {
         }
         
-        this.setInExploring(Math.random() < 0.8);
+        this.setInExploring(Math.random() < 0.85);
         System.out.println("    explorer " + this.type + " just makes their decision! (" + (millisecond / 1000.0) + "s)");
     }
 }
