@@ -74,7 +74,7 @@ public class Game
                 System.out.println(this.path);
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
                     System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
-                System.out.println("[?] asking everyone stay or leave.");
+                System.out.println("[?] asking everyone STAY or GO.");
                 // end of hint ------------------------
 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
@@ -105,7 +105,9 @@ public class Game
                     if (room instanceof Treasure)
                         ((Treasure)room).share(explorersWhoChooseToGo);
 
-                System.out.println(this.getExplorersWhoStay() + "want(s) to keep exploring.");
+                // Hint
+                System.out.println("explorer " + this.getExplorersWhoStay() + " want(s) to keep exploring.");
+                
                 try
                 {
                     Thread.sleep(100);
@@ -117,8 +119,7 @@ public class Game
             }
             while (this.isSomeoneExploring());
             
-            System.out.println();
-            System.out.println("round " + (currentRound + 1) + " ended!");
+            System.out.println("\nround " + (currentRound + 1) + " ended!");
             
             for (Agent explorer : this.explorers)
                 explorer.storeGemsIntoTent();
@@ -128,12 +129,9 @@ public class Game
                 Thread.sleep(1000);
             }
             catch (InterruptedException e) {}
-
-            // break;
         }
         
-        System.out.println();
-        System.out.println("game over! final result:");
+        System.out.println("\ngame over! final result:");
         for (Agent explorer : this.explorers)
         {
             System.out.print("explorer " + explorer.getType() + ": ");
