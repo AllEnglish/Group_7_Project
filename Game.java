@@ -184,11 +184,14 @@ public class Game
         for (Agent explorer : this.explorers)
             explorer.setInExploring(true);
         
-        for (Card card : this.deck)
+        for (Card room : this.path)
         {
-            if (card instanceof Gemstone)
-                ((Gemstone)card).resetValue();
+            if (room instanceof Gemstone)
+                ((Gemstone)room).resetValue();
         }
+        
+        this.deck.addAll(this.path);
+        this.path.clear();
         
         this.shuffleDeck();
     }
