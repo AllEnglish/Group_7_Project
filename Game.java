@@ -30,7 +30,8 @@ public class Game
         for (int currentRound = 0; currentRound < this.round; currentRound++)
         {
             this.reset();
-            System.out.println("round " + (currentRound + 1));
+            System.out.println();
+            System.out.println("round " + (currentRound + 1) + "start!");
             
             do
             {     
