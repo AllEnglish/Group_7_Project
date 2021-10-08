@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game
 {
@@ -77,26 +79,31 @@ public class Game
 
                 /**********vvvvvv**********/
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
-                ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
+                HashMap<Agent, Thread> actionOrder = new HashMap<>();
                 
-                ArrayList<Thread> decisionProcesses = new ArrayList<>();
-                for (Agent explorerWhoStay : explorersWhoStay)
+                for (Agent explorerWhoStay : this.getExplorersWhoStay())
                 {
-                    Thread t = new Thread(() -> explorerWhoStay.act());
-                    t.start();
-                    decisionProcesses.add(t);
+                    Thread action = new Thread(() -> explorerWhoStay.act());
+                    action.start();
+                    actionOrder.put(explorerWhoStay, action);
                 }
                 
                 try
                 {
-                    for (Thread t : decisionProcesses)
-                        t.join();
+                    for (Map.Entry<Agent, Thread> actionSet : actionOrder)
+                    {
+                        actionSet.getValue().join();
+                        if (!actionSet.getKey().isInExploring())
+                            explorersWhoChooseToGo.add(actionSet.getKey());
+                    }
                 }
                 catch (InterruptedException e) {}
-                    
+                
+                /*
                 for (Agent explorerWhoStay : explorersWhoStay)
                     if (!explorerWhoStay.isInExploring())
                         explorersWhoChooseToGo.add(explorerWhoStay);
+                        */
                 /**********^^^^^^**********/
                   
                 for (Card room : this.path)
