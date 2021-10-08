@@ -116,7 +116,7 @@ public class Game
                 if (this.isSomeoneExploring())
                 {
                     for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                        System.out.print("    " + explorerWhoStay.getType() + " ");
+                        System.out.print(explorerWhoStay.getType() + " ");
                     System.out.print("want to keep exploring.");
                     System.out.println();
                     try
