@@ -79,16 +79,17 @@ public class Game
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
                 
-                Thread[] ts = new Thread[explorersWhoStay.size()];
-                for (int idx = 0; idx < explorersWhoStay.size(); idx++)
+                ArrayList<Thread> decisionProcesses = ArrayList<>();
+                for (Agent explorerWhoStay : explorersWhoStay)
                 {
-                    Agent b = explorersWhoStay.get(idx);
-                    (ts[idx] = new Thread(() -> b.act())).start();
+                    Thread t = new Thread(() -> explorerWhoStay.act());
+                    t.start();
+                    decisionProcesses.add(t);
                 }
                 
                 try
                 {
-                    for (Thread t : ts)
+                    for (Thread t : decisionProcesses)
                         t.join();
                 }
                 catch (InterruptedException e) {}
