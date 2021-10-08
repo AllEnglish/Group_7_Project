@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Game implements Runnable
+public class Game
 {
     protected final int round;
     protected ArrayList<Agent> explorers;
@@ -27,8 +27,7 @@ public class Game implements Runnable
         this.explorers.add(new Computer(7));
     }
     
-    @Override
-    public void run()
+    public void startGame()
     {
         this.initializeDeck();
         
@@ -76,11 +75,11 @@ public class Game implements Runnable
                 // hint dialog ------------------------
                 System.out.println(this.path);
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                    System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
+                    System.out.println("    explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
-                /********************/
+                /**********vvvvvv**********/
                 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
@@ -107,7 +106,7 @@ public class Game implements Runnable
                         explorersWhoChooseToGo.add(explorerWhoStay);
                 }
                 
-                /********************/
+                /**********^^^^^^**********/
                   
                 for (Card room : this.path)
                     if (room instanceof Treasure)
