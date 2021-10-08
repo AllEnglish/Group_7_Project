@@ -7,7 +7,7 @@ public class Game
     private ArrayList<Agent> explorers;
     private ArrayList<Card> deck;
     private ArrayList<Card> path;
-    // private ArrayList<Artifact> a;
+    // private ArrayList<Artifact> artifactsInTomb;
 
     public Game(int round)
     {
@@ -36,9 +36,9 @@ public class Game
             System.out.println("round " + (currentRound + 1) + " start!");
             
             do
-            {     
-                this.revealNextRoom();
+            {
                 System.out.println();
+                this.revealNextRoom();
                 
                 Card currentRoom = this.path.get(this.path.size() - 1);
                 
@@ -76,7 +76,6 @@ public class Game
                 // end of hint ------------------------
 
                 /**********vvvvvv**********/
-                
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
                 
@@ -84,8 +83,7 @@ public class Game
                 for (int idx = 0; idx < explorersWhoStay.size(); idx++)
                 {
                     Agent b = explorersWhoStay.get(idx);
-                    ts[idx] = new Thread(() -> b.act());
-                    ts[idx].start();
+                    (ts[idx] = new Thread(() -> b.act())).start();
                 }
                 
                 try
@@ -98,7 +96,6 @@ public class Game
                 for (Agent explorerWhoStay : explorersWhoStay)
                     if (!explorerWhoStay.isInExploring())
                         explorersWhoChooseToGo.add(explorerWhoStay);
-                
                 /**********^^^^^^**********/
                   
                 for (Card room : this.path)
@@ -217,11 +214,6 @@ public class Game
     private void revealNextRoom()
     {
         this.path.add(this.deck.remove(0));
-    }
-
-    public int getRound()
-    {
-        return this.round;
     }
     
     private ArrayList<Agent> getExplorersWhoStay()
