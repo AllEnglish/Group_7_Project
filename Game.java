@@ -106,7 +106,7 @@ public class Game implements Runnable
         {
             System.out.print(winner.getType() + " ");
         }
-        System.out.println(" are winner!");
+        System.out.println("are winner!");
     }
 
     private void initializeDeck()
