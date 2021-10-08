@@ -79,7 +79,7 @@ public class Game
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
                 
-                ArrayList<Thread> decisionProcesses = ArrayList<>();
+                ArrayList<Thread> decisionProcesses = new ArrayList<>();
                 for (Agent explorerWhoStay : explorersWhoStay)
                 {
                     Thread t = new Thread(() -> explorerWhoStay.act());
