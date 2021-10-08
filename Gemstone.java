@@ -14,6 +14,11 @@ public class Gemstone extends Treasure
     {
         return this.valueOfLeftover;
     }
+    
+    public void resetValue()
+    {
+        this.valueOfLeftover = this.value;
+    }
 
     @Override
     public String name()
