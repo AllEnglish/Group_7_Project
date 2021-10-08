@@ -75,7 +75,7 @@ public class Game
                 // hint dialog ------------------------
                 System.out.println(this.path);
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                    System.out.println("    explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
+                    System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
@@ -116,7 +116,7 @@ public class Game
                 if (this.isSomeoneExploring())
                 {
                     for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                        System.out.print(explorerWhoStay.getType() + " ");
+                        System.out.print("    " + explorerWhoStay.getType() + " ");
                     System.out.print("want to keep exploring.");
                     System.out.println();
                     try
