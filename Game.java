@@ -173,7 +173,7 @@ public class Game implements Runnable
         ArrayList<Agent> explorersWhoStay = new ArrayList<>();
         
         for (Agent explorer : this.explorers)
-            if (explorer.isInExploring)
+            if (explorer.isInExploring())
                 explorersWhoStay.add(explorer);
                 
         return explorersWhoStay;
