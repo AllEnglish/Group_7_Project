@@ -88,7 +88,8 @@ public class Game implements Runnable
                 }
                 
                 for (Card room : this.path)
-                    room.share(explorersWhoChooseToGo);
+                    if (room instanceof Treasure)
+                        ((Treasure)room).share(explorersWhoChooseToGo);
 
                 // hint dialog ------------------------
                 if (this.isSomeoneExploring())
