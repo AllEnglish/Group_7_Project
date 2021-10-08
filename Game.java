@@ -90,8 +90,12 @@ public class Game implements Runnable
                     ts[idx].start();
                 }
                 
-                for (Thread t : ts)
-                    t.join();
+                try
+                {
+                    for (Thread t : ts)
+                        t.join();
+                }
+                catch (InterruptedException e) {}
                     
                 for (Agent explorerWhoStay : explorersWhoStay)
                 {
