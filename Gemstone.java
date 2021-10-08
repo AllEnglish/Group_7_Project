@@ -24,11 +24,14 @@ public class Gemstone extends Treasure
     @Override
     public void share(ArrayList<Agent> receivers)
     {
-        int oneShare = this.valueOfLeftover / receivers.size();
-        this.valueOfLeftover %= receivers.size();
-        
-        for (Agent receiver : receivers)
-            receiver.addGems(oneShare);
+        if (!receivers.isEmpty())
+        {
+            int oneShare = this.valueOfLeftover / receivers.size();
+            this.valueOfLeftover %= receivers.size();
+            
+            for (Agent receiver : receivers)
+                receiver.addGems(oneShare);
+        }
     }
     
     @Override
