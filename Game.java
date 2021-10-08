@@ -17,7 +17,7 @@ public class Game
         this.path = new ArrayList<>();
         
         // just for testing
-        this.explorers.add(new Computer(0));
+        this.explorers.add(new Player(0));
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
