@@ -58,18 +58,17 @@ public class Game implements Runnable
                 else if (room instanceof Hazard)
                 {
                     Hazard roomOfHazard = (Hazard)room;
-                    ArrayList<Agent> players = new ArrayList<>();
-                    /*
-                    for (Agent explorer : this.explorers)
-                        if (explorer.isInExploring())
-                            players.add(explorer);
-                    */
-                    for(int i ; i < this.path.size() - 1 ; i++)
+
+                    for (int i = 0; i < this.path.size() - 1; i++)
                     {
-                       if (roomOfHazard.number.equals(this.path.number))
-                           for(int j ; j < this.explorers.size() ; j++)
-                               if (explorers.get(j).isInExploring())
-                                   this.explorers.get(j).flee();
+                        if (roomOfHazard.equals(this.path.get(i)))
+                        {
+                            for (Agent explorer : this.explorers)
+                                if (explorer.isInExploring())
+                                    explorer.flee();
+                            System.out.println("[GG] " + roomOfHazard.name() + " happened!");
+                            break;
+                        }
                     }
 
                     // do something...
