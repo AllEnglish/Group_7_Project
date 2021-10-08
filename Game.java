@@ -6,8 +6,8 @@ public class Game
     private final int round;
     private ArrayList<Agent> explorers;
     private ArrayList<Card> deck;
-    // protected ArrayList<Card> fold = new ArrayList<>();
     private ArrayList<Card> path;
+    // private ArrayList<Artifact> a;
 
     public Game(int round)
     {
@@ -17,14 +17,14 @@ public class Game
         this.path = new ArrayList<>();
         
         // just for testing
-        this.explorers.add(new Player(0));
+        this.explorers.add(new Computer(0));
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
         this.explorers.add(new Computer(4));
         this.explorers.add(new Computer(5));
         
-        this.initializeDeck();
+        this.initializeCards();
     }
     
     public void startGame()
@@ -151,7 +151,7 @@ public class Game
         System.out.println("are winner!");
     }
 
-    private void initializeDeck()
+    private void initializeCards()
     {
         this.deck.add(new Hazard(0));
         this.deck.add(new Hazard(0));
