@@ -70,19 +70,18 @@ public class Game
                     }
                 }
                 
-                // hint dialog ------------------------
+                // Hint
                 System.out.println(this.path);
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
                     System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
                 System.out.println("[?] asking everyone STAY or GO.");
-                // end of hint ------------------------
 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 HashMap<Agent, Thread> actionOrder = new HashMap<>();
                 
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
                 {
-                    Thread action = new Thread(() -> explorerWhoStay.act());
+                    Thread action = new Thread(() -> explorerWhoStay.act(this.path));
                     action.start();
                     actionOrder.put(explorerWhoStay, action);
                 }
