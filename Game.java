@@ -21,6 +21,8 @@ public class Game
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
+        this.explorers.add(new Computer(4));
+        this.explorers.add(new Computer(5));
         
         this.initializeDeck();
     }
@@ -31,7 +33,7 @@ public class Game
         {
             this.reset();
             System.out.println();
-            System.out.println("round " + (currentRound + 1) + "start!");
+            System.out.println("round " + (currentRound + 1) + " start!");
             
             do
             {     
