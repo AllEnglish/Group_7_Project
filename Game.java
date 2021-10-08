@@ -122,7 +122,7 @@ public class Game implements Runnable
                     System.out.println();
                     try
                     {
-                        Thread.sleep(1500);
+                        Thread.sleep(500);
                     }
                     catch (InterruptedException e) {}
                 }
