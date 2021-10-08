@@ -79,7 +79,7 @@ public abstract class Agent // implements Comparable<Agent>
     @Override
     public String toString()
     {
-        return this.type;
+        return String.valueOf(this.type);
     }
 
     public abstract void act();
