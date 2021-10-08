@@ -111,7 +111,7 @@ public class Game
                     System.out.println();
                     try
                     {
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     }
                     catch (InterruptedException e) {}
                 }
@@ -128,7 +128,7 @@ public class Game
             System.out.println();
             try
             {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             }
             catch (InterruptedException e) {}
 
