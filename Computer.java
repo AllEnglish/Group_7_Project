@@ -9,7 +9,7 @@ public class Computer extends Agent
     
     public void act()
     {
-        int millisecond = (int)(Math.random() * 1200);
+        int millisecond = (int)(Math.random() * 3000);
         try
         {
             Thread.sleep(millisecond);
