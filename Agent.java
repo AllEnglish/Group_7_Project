@@ -75,6 +75,12 @@ public abstract class Agent // implements Comparable<Agent>
             xv += af.getValue();
         return this.gemsInsideTent + xv;
     }
+    
+    @Override
+    public String toString()
+    {
+        return this.type;
+    }
 
     public abstract void act();
 }
