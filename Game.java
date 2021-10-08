@@ -77,7 +77,6 @@ public class Game
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
-                /**********vvvvvv**********/
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 HashMap<Agent, Thread> actionOrder = new HashMap<>();
                 
@@ -97,32 +96,24 @@ public class Game
                             explorersWhoChooseToGo.add(actionSet.getKey());
                     }
                 }
-                catch (InterruptedException e) {}
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
                 
-                /*
-                for (Agent explorerWhoStay : explorersWhoStay)
-                    if (!explorerWhoStay.isInExploring())
-                        explorersWhoChooseToGo.add(explorerWhoStay);
-                        */
-                /**********^^^^^^**********/
-                  
                 for (Card room : this.path)
                     if (room instanceof Treasure)
                         ((Treasure)room).share(explorersWhoChooseToGo);
 
-                // hint dialog ------------------------
-                if (this.isSomeoneExploring())
+                System.out.println(this.getExplorersWhoStay() + "want(s) to keep exploring.");
+                try
                 {
-                    for (Agent explorerWhoStay : this.getExplorersWhoStay())
-                        System.out.print(explorerWhoStay.getType() + " ");
-                    System.out.print("want to keep exploring.");
-                    try
-                    {
-                        Thread.sleep(100);
-                    }
-                    catch (InterruptedException e) {}
+                    Thread.sleep(100);
                 }
-                // end of hint ------------------------
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
             }
             while (this.isSomeoneExploring());
             
