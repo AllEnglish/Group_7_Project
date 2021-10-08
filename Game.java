@@ -90,7 +90,7 @@ public class Game
                 
                 try
                 {
-                    for (Map.Entry<Agent, Thread> actionSet : actionOrder)
+                    for (Map.Entry<Agent, Thread> actionSet : actionOrder.entrySet())
                     {
                         actionSet.getValue().join();
                         if (!actionSet.getKey().isInExploring())
