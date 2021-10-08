@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Agent // implements Comparable<Agent>
 {
@@ -82,5 +83,5 @@ public abstract class Agent // implements Comparable<Agent>
         return String.valueOf(this.type);
     }
 
-    public abstract void act();
+    public abstract void act(List<Card> path);
 }
