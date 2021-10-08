@@ -39,6 +39,6 @@ public class Hazard extends Card
     public String toString()
     {
         return "<\u001B[31m" + this.name().charAt(0) + "\u001B[0m>";
-        // return this.name() + " <Hazard " + this.number + ">";
+        // return String.format("%s <Hazard %d>", this.name(), this.number);
     }
 }
