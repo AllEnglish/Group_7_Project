@@ -118,6 +118,16 @@ public class Game
                 // end of hint ------------------------
             }
             while (this.isSomeoneExploring());
+            
+            System.out.println("round " + currentRound + " ended!");
+            for (Agent explorer : this.explorers)
+                explorer.storeGemsIntoTent();
+            System.out.println();
+            try
+            {
+                Thread.sleep(2000);
+            }
+            catch (InterruptedException e) {}
 
             // break;
         }
@@ -126,7 +136,6 @@ public class Game
         System.out.println("game over! final result:");
         for (Agent explorer : this.explorers)
         {
-            explorer.storeGemsIntoTent();
             System.out.print("explorer " + explorer.getType() + ": ");
             System.out.print("\u001B[32m" + explorer.getGemsInsideTent() + "\u001B[0m + ");
             System.out.println("\u001B[33m" + (explorer.total() - explorer.getGemsInsideTent()) + "\u001B[0m");
