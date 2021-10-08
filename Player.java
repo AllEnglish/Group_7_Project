@@ -8,7 +8,7 @@ public class Player extends Agent
     }
     
     @Override
-    public void act()
+    public void act(List<Card> path)
     {
         setInExploring(new Scanner(System.in).nextLine().equals("y"));
     }
