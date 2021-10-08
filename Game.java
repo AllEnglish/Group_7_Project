@@ -100,7 +100,7 @@ public class Game implements Runnable
                     
                 for (Agent explorerWhoStay : explorersWhoStay)
                 {
-                    explorerWhoStay.act();
+                    // explorerWhoStay.act();
                     if (!explorerWhoStay.isInExploring())
                         explorersWhoChooseToGo.add(explorerWhoStay);
                 }
