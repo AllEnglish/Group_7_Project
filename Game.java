@@ -3,11 +3,11 @@ import java.util.Collections;
 
 public class Game
 {
-    protected final int round;
-    protected ArrayList<Agent> explorers;
-    protected ArrayList<Card> deck;
+    private final int round;
+    private ArrayList<Agent> explorers;
+    private ArrayList<Card> deck;
     // protected ArrayList<Card> fold = new ArrayList<>();
-    protected ArrayList<Card> path;
+    private ArrayList<Card> path;
 
     public Game(int round)
     {
@@ -21,19 +21,16 @@ public class Game
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
+        
+        this.initializeDeck();
     }
     
     public void startGame()
     {
-        this.initializeDeck();
-        
         for (int currentRound = 0; currentRound < this.round; currentRound++)
         {
-            for (Agent explorer : this.explorers)
-                explorer.setInExploring(true);
-            
+            this.reset();
             System.out.println("round " + (currentRound + 1));
-            this.deckShuffle();
             
             do
             {     
@@ -96,11 +93,8 @@ public class Game
                 catch (InterruptedException e) {}
                     
                 for (Agent explorerWhoStay : explorersWhoStay)
-                {
-                    // explorerWhoStay.act();
                     if (!explorerWhoStay.isInExploring())
                         explorersWhoChooseToGo.add(explorerWhoStay);
-                }
                 
                 /**********^^^^^^**********/
                   
@@ -125,7 +119,7 @@ public class Game
             }
             while (this.isSomeoneExploring());
 
-            break;
+            // break;
         }
         
         System.out.println();
@@ -184,13 +178,27 @@ public class Game
         this.deck.add(new Artifact(3, 10));
         this.deck.add(new Artifact(4, 12));
     }
+    
+    private void reset()
+    {
+        for (Agent explorer : this.explorers)
+            explorer.setInExploring(true);
+        
+        for (Card card : this.deck)
+        {
+            if (card instanceof Gemstone)
+                ((Gemstone)card).resetValue();
+        }
+        
+        this.shuffleDeck();
+    }
 
-    public void deckShuffle()
+    private void shuffleDeck()
     {
         Collections.shuffle(this.deck);
     }
 
-    public void revealNextRoom()
+    private void revealNextRoom()
     {
         this.path.add(this.deck.remove(0));
     }
@@ -200,7 +208,7 @@ public class Game
         return this.round;
     }
     
-    public ArrayList<Agent> getExplorersWhoStay()
+    private ArrayList<Agent> getExplorersWhoStay()
     {
         ArrayList<Agent> explorersWhoStay = new ArrayList<>();
         
@@ -211,7 +219,7 @@ public class Game
         return explorersWhoStay;
     }
 
-    public boolean isSomeoneExploring()
+    private boolean isSomeoneExploring()
     {
         boolean find = false;
         
@@ -221,7 +229,7 @@ public class Game
         return find;
     }
        
-    public Agent[] findWinners()
+    private Agent[] findWinners()
     {
         int maxScore = 0;
         ArrayList<Agent> winners = new ArrayList<>();
