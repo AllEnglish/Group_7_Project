@@ -111,7 +111,7 @@ public class Game implements Runnable
             explorer.storeGemsIntoTent();
             System.out.println("explorer " + explorer.getType() + " holds total " + explorer.getGemsInsideTent() + " gem(s) inside their tent.");
         }
-        for (Agent winner : this.findWinner())
+        for (Agent winner : this.findWinners())
         {
             System.out.print(winner.getType() + " ");
         }
