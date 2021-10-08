@@ -108,7 +108,6 @@ public class Game
                     for (Agent explorerWhoStay : this.getExplorersWhoStay())
                         System.out.print(explorerWhoStay.getType() + " ");
                     System.out.print("want to keep exploring.");
-                    System.out.println();
                     try
                     {
                         Thread.sleep(100);
@@ -119,13 +118,12 @@ public class Game
             }
             while (this.isSomeoneExploring());
             
-            System.out.println("round " + (currentRound + 1) + " ended!");
-            for (Agent explorer : this.explorers)
-            {
-                System.out.println("explorer " + explorer.getType() + " puts " + explorer.getGems() + " gem(s) into their tent.");
-                explorer.storeGemsIntoTent();
-            }
             System.out.println();
+            System.out.println("round " + (currentRound + 1) + " ended!");
+            
+            for (Agent explorer : this.explorers)
+                explorer.storeGemsIntoTent();
+            
             try
             {
                 Thread.sleep(1000);
