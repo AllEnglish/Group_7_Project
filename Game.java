@@ -161,10 +161,10 @@ public class Game implements Runnable
 
     public boolean isSomeoneExploring()
     {
-        boolean b = false;
-        for (Agent p : this.explorers)
-            b |= p.isInExploring();
-        return b;
+        boolean find = false;
+        for (Agent explorer : this.explorers)
+            find |= explorer.isInExploring();
+        return find;
     }
     /*
     public Agent findWinner()
@@ -207,5 +207,4 @@ public class Game implements Runnable
          }
         return winner.toArray(new Agent[winner.size()]);
     }
-    
 }
