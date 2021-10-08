@@ -94,6 +94,19 @@ public class Game implements Runnable
 
             break;
         }
+        
+        System.out.println();
+        System.out.println("game over! final result:");
+        for (Agent explorer : this.explorers)
+        {
+            explorer.storeGemsIntoTent();
+            System.out.println("explorer " + explorer.getType() + " holds total " + explorer.getGemsInsideTent() + " gem(s) inside their tent.");
+        }
+        for (Agent winner : this.findWinner())
+        {
+            System.out.print(winner.getType() + " ");
+        }
+        System.out.println(" are winner!");
     }
 
     private void initializeDeck()
