@@ -23,6 +23,8 @@ public class Game implements Runnable
         this.explorers.add(new Computer(3));
         this.explorers.add(new Computer(4));
         this.explorers.add(new Computer(5));
+        this.explorers.add(new Computer(6));
+        this.explorers.add(new Computer(7));
     }
     
     @Override
@@ -136,7 +138,7 @@ public class Game implements Runnable
         for (Agent explorer : this.explorers)
         {
             explorer.storeGemsIntoTent();
-            System.out.println("[explorer " + explorer.getType() + "] " + explorer.getGemsInsideTent() + "+" + (explorer.total() - explorer.getGemsInsideTent()));
+            System.out.println("[explorer " + explorer.getType() + "] " + explorer.getGemsInsideTent() + "g + " + (explorer.total() - explorer.getGemsInsideTent()) + "a");
         }
         for (Agent winner : this.findWinners())
         {
