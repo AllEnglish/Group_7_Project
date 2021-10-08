@@ -12,6 +12,7 @@ public abstract class Agent // implements Comparable<Agent>
     {
         this.type = type;
         this.inExploring = false;
+        this.possessionOfArtifacts = new ArrayList<>();
     }
     
     public int getType()
