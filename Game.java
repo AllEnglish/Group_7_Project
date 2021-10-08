@@ -21,10 +21,6 @@ public class Game
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
-        this.explorers.add(new Computer(4));
-        this.explorers.add(new Computer(5));
-        this.explorers.add(new Computer(6));
-        this.explorers.add(new Computer(7));
     }
     
     public void startGame()
