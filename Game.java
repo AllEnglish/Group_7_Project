@@ -86,7 +86,8 @@ public class Game implements Runnable
                 Thread[] ts = new Thread[explorersWhoStay.size()];
                 for (int idx = 0; idx < explorersWhoStay.size(); idx++)
                 {
-                    ts[idx] = new Thread(() -> explorersWhoStay.get(idx).act());
+                    final int finalIdx = idx;
+                    ts[idx] = new Thread(() -> explorersWhoStay.get(finalIdx).act());
                     ts[idx].start();
                 }
                 
