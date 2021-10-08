@@ -135,7 +135,8 @@ public class Game
         {
             System.out.print("explorer " + explorer.getType() + ": ");
             System.out.printf("\u001B[32m%2d\u001B[0m + ", explorer.getGemsInsideTent());
-            System.out.printf("\u001B[33m%2d\u001B[0m%n", explorer.total() - explorer.getGemsInsideTent());
+            System.out.printf("\u001B[33m%2d\u001B[0m", explorer.total() - explorer.getGemsInsideTent());
+            System.out.printf(" = [%2d]\n", explorer.total());
         }
     }
 
