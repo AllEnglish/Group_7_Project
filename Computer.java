@@ -7,7 +7,7 @@ public class Computer extends Agent
         super(type);
     }
     
-    public void act()
+    public void act(List<Card> path)
     {
         int millisecond = (int)(Math.random() * 400);
         try
