@@ -178,6 +178,12 @@ public class Game implements Runnable
         this.deck.add(new Gemstone(9, 14));
         this.deck.add(new Gemstone(10, 15));
         this.deck.add(new Gemstone(11, 17));
+        
+        this.deck.add(new Artifact(0));
+        this.deck.add(new Artifact(1));
+        this.deck.add(new Artifact(2));
+        this.deck.add(new Artifact(3));
+        this.deck.add(new Artifact(4));
     }
 
     public void deckShuffle()
