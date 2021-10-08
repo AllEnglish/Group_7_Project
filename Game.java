@@ -138,7 +138,7 @@ public class Game implements Runnable
         for (Agent explorer : this.explorers)
         {
             explorer.storeGemsIntoTent();
-            System.out.println("[explorer " + explorer.getType() + "] " + explorer.getGemsInsideTent() + "g + " + (explorer.total() - explorer.getGemsInsideTent()) + "a");
+            System.out.println("explorer " + explorer.getType() + ": " + explorer.getGemsInsideTent() + " + " + possessionOfArtifacts);
         }
         for (Agent winner : this.findWinners())
         {
