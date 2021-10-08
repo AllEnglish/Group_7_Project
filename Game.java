@@ -74,7 +74,7 @@ public class Game
                 System.out.println(this.path);
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
                     System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
-                System.out.println("[?] asking everyone STAY or GO.");
+                System.out.println("--- asking everyone STAY or GO.");
 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 HashMap<Agent, Thread> actionOrder = new HashMap<>();
@@ -105,7 +105,7 @@ public class Game
                         ((Treasure)room).share(explorersWhoChooseToGo);
 
                 // Hint
-                System.out.println("explorer " + this.getExplorersWhoStay() + " want(s) to keep exploring.");
+                System.out.println(this.getExplorersWhoStay() + " want(s) to keep exploring.");
                 
                 try
                 {
@@ -137,11 +137,8 @@ public class Game
             System.out.print("\u001B[32m" + explorer.getGemsInsideTent() + "\u001B[0m + ");
             System.out.println("\u001B[33m" + (explorer.total() - explorer.getGemsInsideTent()) + "\u001B[0m");
         }
-        for (Agent winner : this.findWinners())
-        {
-            System.out.print(winner.getType() + " ");
-        }
-        System.out.println("are winner!");
+
+        System.out.println(this.findWinners() + " is/are winner!");
     }
 
     private void initializeCards()
