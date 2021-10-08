@@ -78,15 +78,30 @@ public class Game implements Runnable
                 System.out.println("[?] asking everyone stay or leave.");
                 // end of hint ------------------------
 
+                /********************/
+                
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
-                 
-                for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                ArrayList<Agent> explorersWhoStay = this.getExplorersWhoStay();
+                
+                Thread[] ts = new Thread[explorersWhoStay.size()];
+                for (int idx = 0; idx < explorersWhoStay.size(); idx++)
                 {
-                    explorerWhoStay.act();   
+                    ts[idx] = new Thread(() -> explorersWhoStay.get(idx).act());
+                    ts[idx].start();
+                }
+                
+                for (Thread t : ts)
+                    t.join();
+                    
+                for (Agent explorerWhoStay : explorersWhoStay)
+                {
+                    explorerWhoStay.act();
                     if (!explorerWhoStay.isInExploring())
                         explorersWhoChooseToGo.add(explorerWhoStay);
                 }
                 
+                /********************/
+                  
                 for (Card room : this.path)
                     if (room instanceof Treasure)
                         ((Treasure)room).share(explorersWhoChooseToGo);
