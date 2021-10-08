@@ -60,7 +60,7 @@ public class Game
                         {
                             for (Agent explorerWhoStay : this.getExplorersWhoStay())
                                 explorerWhoStay.flee();
-                            System.out.println("[GG] " + roomOfHazard.name() + " happened!");
+                            System.out.println("\u001B[31m*** " + roomOfHazard.name().toUpperCase() + " HAPPENED! ***\u001B[0m");
                             break;
                         }
                     }
