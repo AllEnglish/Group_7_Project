@@ -134,11 +134,9 @@ public class Game
         for (Agent explorer : this.explorers)
         {
             System.out.print("explorer " + explorer.getType() + ": ");
-            System.out.print("\u001B[32m" + explorer.getGemsInsideTent() + "\u001B[0m + ");
-            System.out.println("\u001B[33m" + (explorer.total() - explorer.getGemsInsideTent()) + "\u001B[0m");
+            System.out.printf("\u001B[32m%2d\u001B[0m + ", explorer.getGemsInsideTent());
+            System.out.printf("\u001B[33m%2d\u001B[0m%n", explorer.total() - explorer.getGemsInsideTent());
         }
-
-        System.out.println(this.findWinners() + " is/are winner!");
     }
 
     private void initializeCards()
