@@ -18,10 +18,10 @@ public class Computer2 extends Agent
         
         /* To-do */
         
-        if (path.size() <= 3)
+        if (path.size() <= 3 )
             this.setInExploring(false);
-        else if (3 < path.size() < 6)
-            this.setInExploring(Math.random() <= 0.5);
+        else if (3 < path.size() < 6 || path.get(path.size() - 1) instanceof Treasure)
+            this.setInExploring(Math.random() <= 0.55);
         else
             this.setInExploring(Math.random() < 0.85);
         
