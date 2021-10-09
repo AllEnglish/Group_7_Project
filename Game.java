@@ -11,6 +11,7 @@ public class Game
     private ArrayList<Card> deck;
     private ArrayList<Card> path;
     private ArrayList<Artifact> artifactsInTomb;
+    private Hazard lastOccurredHazard;
 
     public Game(int round)
     {
@@ -19,6 +20,7 @@ public class Game
         this.deck = new ArrayList<>();
         this.path = new ArrayList<>();
         this.artifactsInTomb = new ArrayList<>();
+        this.lastOccurredHazard = null;
         
         // just for testing
         this.explorers.add(new Computer(0));
@@ -66,6 +68,7 @@ public class Game
                         {
                             for (Agent explorerWhoStay : this.getExplorersWhoStay())
                                 explorerWhoStay.flee();
+                            this.lastOccurredHazard = roomOfHazard;
                             System.out.println("\u001B[31m*** " + roomOfHazard.name().toUpperCase() + " HAPPENED! ***\u001B[0m");
                             break;
                         }
@@ -199,10 +202,14 @@ public class Game
             
             if (room instanceof Gemstone)
                 ((Gemstone)room).resetValue();
-            else if (room instanceof Artifact)
+            else if (room instanceof Artifact || room == this.lastOccurredHazard)
+            {
+                System.out.println(room + " removed!");
                 deckChecker.remove();
+            }
         }
   
+        this.lastOccurredHazard = null;
         this.deck.add(this.artifactsInTomb.remove(0));
         this.shuffleDeck();
     }
