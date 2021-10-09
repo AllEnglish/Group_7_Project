@@ -18,7 +18,11 @@ public class Computer2 extends Agent
         
         /* To-do */
         
-        this.setInExploring(Math.random() < 0.85);
+        if (path.size() < 3)
+            this.setInExploring(false);
+        else
+            this.setInExploring(Math.random() < 0.85);
+        
         
         /* End of to-do */
         
