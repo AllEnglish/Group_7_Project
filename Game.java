@@ -202,11 +202,10 @@ public class Game
             
             if (room instanceof Gemstone)
                 ((Gemstone)room).resetValue();
-            else if (room instanceof Artifact || room == this.lastOccurredHazard)
-            {
-                System.out.println(room + " removed!");
+            else if (room instanceof Artifact)
                 deckChecker.remove();
-            }
+            else if (this.lastOccurredHazard != null && room == this.lastOccurredHazard)
+                deckChecker.remove();
         }
   
         this.lastOccurredHazard = null;
