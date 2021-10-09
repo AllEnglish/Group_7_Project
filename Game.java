@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Game
@@ -9,7 +10,7 @@ public class Game
     private ArrayList<Agent> explorers;
     private ArrayList<Card> deck;
     private ArrayList<Card> path;
-    // private ArrayList<Artifact> artifactsInTomb;
+    private ArrayList<Artifact> artifactsInTomb;
 
     public Game(int round)
     {
@@ -17,6 +18,7 @@ public class Game
         this.explorers = new ArrayList<>();
         this.deck = new ArrayList<>();
         this.path = new ArrayList<>();
+        this.artifactsInTomb = new ArrayList<>();
         
         // just for testing
         this.explorers.add(new Computer(0));
@@ -174,11 +176,11 @@ public class Game
         this.deck.add(new Gemstone(10, 15));
         this.deck.add(new Gemstone(11, 17));
         
-        this.deck.add(new Artifact(0, 5));
-        this.deck.add(new Artifact(1, 7));
-        this.deck.add(new Artifact(2, 8));
-        this.deck.add(new Artifact(3, 10));
-        this.deck.add(new Artifact(4, 12));
+        this.artifactsInTomb.add(new Artifact(0, 5));
+        this.artifactsInTomb.add(new Artifact(1, 7));
+        this.artifactsInTomb.add(new Artifact(2, 8));
+        this.artifactsInTomb.add(new Artifact(3, 10));
+        this.artifactsInTomb.add(new Artifact(4, 12));
     }
     
     private void reset()
@@ -186,15 +188,22 @@ public class Game
         for (Agent explorer : this.explorers)
             explorer.setInExploring(true);
         
-        for (Card room : this.path)
-        {
-            if (room instanceof Gemstone)
-                ((Gemstone)room).resetValue();
-        }
-        
         this.deck.addAll(this.path);
         this.path.clear();
         
+        Iterator<Card> deckChecker = this.deck.iterator();
+        
+        while (deckChecker.hasNext())
+        {
+            Card room = deckChecker.next();
+            
+            if (room instanceof Gemstone)
+                ((Gemstone)room).resetValue();
+            else if (room instanceof Artifact)
+                deckChecker.remove();
+        }
+  
+        this.deck.add(this.artifactsInTomb.remove(0));
         this.shuffleDeck();
     }
 
