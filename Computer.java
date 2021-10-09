@@ -14,11 +14,14 @@ public class Computer extends Agent
         {
             Thread.sleep(millisecond);
         }
-        catch (InterruptedException e)
-        {
-        }
+        catch (InterruptedException e) {}
+        
+        /* To-do */
         
         this.setInExploring(Math.random() < 0.85);
+        
+        /* End of to-do */
+        
         System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
     }
 }
