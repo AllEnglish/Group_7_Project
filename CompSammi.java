@@ -25,9 +25,9 @@ public class CompSammi extends Agent
         if (path.size() <= 3)
             this.setInExploring(true);
         else if (path.get(path.size() - 1) instanceof Treasure)
-            this.setInExploring(Math.random() < 0.55);
-        else
             this.setInExploring(Math.random() < 0.85);
+        else
+            this.setInExploring(Math.random() < 0.55);
         
         /* End of to-do */
     }
