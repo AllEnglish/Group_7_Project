@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Computer extends Agent
+public class CompDefault extends Agent
 {    
-    public Computer(int type)
+    public CompDefault(int type)
     {
         super(type);
     }
