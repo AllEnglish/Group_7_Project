@@ -15,7 +15,10 @@ public class CompDefault extends Agent
             Thread.sleep(millisecond);
             System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
         }
-        catch (InterruptedException e) {}
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
         
         /* To-do */
         
