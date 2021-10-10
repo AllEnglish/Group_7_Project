@@ -23,7 +23,7 @@ public class Game
         this.lastOccurredHazard = null;
         
         // just for testing
-        this.explorers.add(new Computer(0));
+        this.explorers.add(new ComputerSammi(0));
         this.explorers.add(new Computer(1));
         this.explorers.add(new Computer(2));
         this.explorers.add(new Computer(3));
