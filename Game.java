@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 public class Game
 {
@@ -218,7 +219,7 @@ public class Game
 
     private void shuffleDeck()
     {
-        Collections.shuffle(this.deck);
+        Collections.shuffle(this.deck, new Random(5));
     }
 
     private void revealNextRoom()
