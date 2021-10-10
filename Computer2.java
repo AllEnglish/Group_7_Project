@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Computer2 extends Agent
 {    
-    public Computer(int type)
+    public Computer2(int type)
     {
         super(type);
     }
