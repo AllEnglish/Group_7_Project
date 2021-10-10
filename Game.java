@@ -219,7 +219,7 @@ public class Game
 
     private void shuffleDeck()
     {
-        Collections.shuffle(this.deck, new Random(5));
+        Collections.shuffle(this.deck, new Random(System.currentTimeMillis()));
     }
 
     private void revealNextRoom()
