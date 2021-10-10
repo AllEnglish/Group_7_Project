@@ -9,10 +9,11 @@ public class CompSammi extends Agent
     
     public void act(List<Card> path)
     {
-        int millisecond = (int)(Math.random() * 500);
         try
         {
+            int millisecond = (int)(Math.random() * 500);
             Thread.sleep(millisecond);
+            System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
         }
         catch (InterruptedException e) {}
         
@@ -26,7 +27,5 @@ public class CompSammi extends Agent
             this.setInExploring(Math.random() < 0.85);
         
         /* End of to-do */
-        
-        System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
     }
 }
