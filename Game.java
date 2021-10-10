@@ -26,8 +26,8 @@ public class Game
         // just for testing
         this.explorers.add(new CompSammi(0));
         this.explorers.add(new CompDefault(1));
-        this.explorers.add(new CompSammi(2));
-        this.explorers.add(new CompSammi(3));
+        this.explorers.add(new CompDefault(2));
+        this.explorers.add(new CompDefault(3));
         this.explorers.add(new CompSammi(4));
         this.explorers.add(new CompDefault(5));
         
