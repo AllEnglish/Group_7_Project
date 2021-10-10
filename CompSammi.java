@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class ComputerSammi extends Agent
+public class CompSammi extends Agent
 {    
-    public ComputerSammi(int type)
+    public CompSammi(int type)
     {
         super(type);
     }
