@@ -9,7 +9,7 @@ public class CompDefault extends Agent
     
     public void act(List<Card> path)
     {
-        int millisecond = (int)(Math.random() * 2000);
+        int millisecond = (int)(Math.random() * 200);
         try
         {
             Thread.sleep(millisecond);
