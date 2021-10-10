@@ -9,7 +9,7 @@ public class CompSammi extends Agent
     
     public void act(List<Card> path)
     {
-        int millisecond = (int)(Math.random() * 3500);
+        int millisecond = (int)(Math.random() * 500);
         try
         {
             Thread.sleep(millisecond);
