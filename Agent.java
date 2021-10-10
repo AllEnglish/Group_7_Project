@@ -84,4 +84,17 @@ public abstract class Agent // implements Comparable<Agent>
     }
 
     public abstract void act(List<Card> path);
+    
+    /*
+    public final void act(Game game)
+    {
+        // do something complicated to divide the argument "game" into the three parameter for act() method.
+        // for those who want to make their own computer logic, it only needs to override decision() method and return a boolean value.
+        // NOTICE: for some reason, this method should be final...
+        
+        this.isInExploring = this.decision(foo, bar, baz);
+    }
+    
+    public abstract boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
+    */
 }
