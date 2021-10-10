@@ -114,7 +114,7 @@ public class Game
                 
                 try
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                 }
                 catch (InterruptedException e)
                 {
@@ -132,7 +132,10 @@ public class Game
             {
                 Thread.sleep(1000);
             }
-            catch (InterruptedException e) {}
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
         }
         
         System.out.println("\ngame over! final result:");
