@@ -90,7 +90,8 @@ public abstract class Agent // implements Comparable<Agent>
     {
         // do something complicated to divide the argument "game" into the three parameter for act() method.
         // for those who want to make their own computer logic, it only needs to override decision() method and return a boolean value.
-        // NOTICE: for some reason, this method should be final...
+        // NOTICE 1: for some reason, this method should be final...
+        // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
         this.isInExploring = this.decision(foo, bar, baz);
     }
