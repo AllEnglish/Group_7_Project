@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Computer2 extends Agent
+public class ComputerSammi extends Agent
 {    
-    public Computer2(int type)
+    public ComputerSammi(int type)
     {
         super(type);
     }
@@ -18,13 +18,12 @@ public class Computer2 extends Agent
         
         /* To-do */
         
-        if (path.size() <= 3 )
-            this.setInExploring(false);
+        if (path.size() <= 3)
+            this.setInExploring(true);
         else if (path.get(path.size() - 1) instanceof Treasure)
-            this.setInExploring(Math.random() <= 0.55);
+            this.setInExploring(Math.random() < 0.55);
         else
             this.setInExploring(Math.random() < 0.85);
-        
         
         /* End of to-do */
         
