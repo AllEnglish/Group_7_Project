@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Artifact extends Treasure
 {
@@ -41,7 +41,7 @@ public class Artifact extends Treasure
     }
     
     @Override
-    public void share(ArrayList<Agent> receivers)
+    public void share(List<Agent> receivers)
     {
         if (receivers.size() == 1 && !receivers.get(0).isInExploring() && this.inTomb)
         {
