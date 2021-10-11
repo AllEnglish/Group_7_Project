@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Gemstone extends Treasure
 {
@@ -27,7 +27,7 @@ public class Gemstone extends Treasure
     }
 
     @Override
-    public void share(ArrayList<Agent> receivers)
+    public void share(List<Agent> receivers)
     {
         if (!receivers.isEmpty())
         {
