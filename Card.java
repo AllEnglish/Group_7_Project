@@ -1,4 +1,4 @@
-public abstract class Card implements Cloneable
+public abstract class Card /*implements Cloneable*/
 {
     protected int number;
 
@@ -8,10 +8,6 @@ public abstract class Card implements Cloneable
     }
 
     public abstract String name();
-    
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 
     public int getNumber()
     {
