@@ -25,6 +25,11 @@ public abstract class Agent // implements Comparable<Agent>
     {
         return this.inExploring;
     }
+    
+    public void setInExploring(boolean inExploring)
+    {
+        this.inExploring = inExploring;
+    }
 
     public int getGems()
     {
