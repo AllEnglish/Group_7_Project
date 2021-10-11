@@ -8,8 +8,8 @@ public class Player extends Agent
     }
     
     @Override
-    public void act(List<Card> path)
+    public boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
     {
-        setInExploring(new Scanner(System.in).nextLine().equals("y"));
+        return new Scanner(System.in).nextLine().equals("y");
     }
 }
