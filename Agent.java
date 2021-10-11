@@ -83,9 +83,6 @@ public abstract class Agent // implements Comparable<Agent>
         return String.valueOf(this.type);
     }
 
-    public abstract void act(List<Card> path);
-    
-    /*
     public final void act(Game game)
     {
         // do something complicated to divide the argument "game" into the three parameter for act() method.
@@ -93,9 +90,8 @@ public abstract class Agent // implements Comparable<Agent>
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
-        this.isInExploring = this.decision(foo, bar, baz);
+        this.isInExploring = this.decision(0, game.path, null);
     }
     
     public abstract boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
-    */
 }
