@@ -46,7 +46,7 @@ public class Artifact extends Treasure
         if (receivers.size() == 1 && !receivers.get(0).isInExploring() && this.inTomb)
         {
             receivers.get(0).possessionOfArtifacts.add(this);
-            this.inTomb = fasle;
+            this.inTomb = false;
         }
     }
     
