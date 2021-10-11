@@ -87,7 +87,7 @@ public class Game
                 
                 for (Agent explorerWhoStay : this.getExplorersWhoStay())
                 {
-                    Thread action = new Thread(() -> explorerWhoStay.act(this.path));
+                    Thread action = new Thread(() -> explorerWhoStay.act(this));
                     action.start();
                     actionOrder.put(explorerWhoStay, action);
                 }
@@ -262,5 +262,10 @@ public class Game
                 winners.add(this.explorers.get(i));
          }
         return winners.toArray(new Agent[winners.size()]);
+    }
+    
+    public ArrayList<Card> getPath()
+    {
+        return this.path;
     }
 }
