@@ -7,7 +7,8 @@ public class CompDefault extends Agent
         super(type);
     }
     
-    public void act(List<Card> path)
+    @Override
+    public boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
     {
         try
         {
@@ -22,7 +23,7 @@ public class CompDefault extends Agent
         
         /* To-do */
         
-        this.setInExploring(Math.random() < 0.85);
+        return (Math.random() < 0.85);
         
         /* End of to-do */
     }
