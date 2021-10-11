@@ -7,6 +7,7 @@ public class CompSammi extends Agent
         super(type);
     }
     
+    @Override
     public boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
     {
         try
