@@ -41,4 +41,11 @@ public class Hazard extends Card
         return "<\u001B[31m" + this.name().charAt(0) + "\u001B[0m>";
         // return String.format("%s <Hazard %d>", this.name(), this.number);
     }
+    
+    @Override
+    public Object clone()
+    {
+        Hazard copy = new Hazard(this.number);
+        return copy;
+    }
 }
