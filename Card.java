@@ -1,4 +1,4 @@
-public abstract class Card /*implements Cloneable*/
+public abstract class Card implements Cloneable
 {
     protected int number;
 
@@ -12,6 +12,12 @@ public abstract class Card /*implements Cloneable*/
     public int getNumber()
     {
         return this.number;
+    }
+    
+    @Override
+    public Object clone()
+    {
+        return null;
     }
     
     @Override
