@@ -45,4 +45,12 @@ public class Gemstone extends Treasure
         return String.format("<\u001B[32m%d/%d\u001B[0m>", this.valueOfLeftover, this.value);
         // return String.format("%s <Gemstone %d with value %d/%d>", this.name(), this.number, this.valueOfLeftover, this.value);
     }
+    
+    @Override
+    public Object clone()
+    {
+        Gemstone copy = new Gemstone(this.number, this.value);
+        copy.valueOfLeftover = this.valueOfLeftover;
+        return copy;
+    }
 }
