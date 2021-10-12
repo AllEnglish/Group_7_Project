@@ -17,6 +17,8 @@ public abstract class Card implements Cloneable
     @Override
     public Object clone() throws CloneNotSupportedException
     {
+        return super.clone();
+    /*
         Card copy;
         
         if (this instanceof Gemstone)
@@ -40,6 +42,7 @@ public abstract class Card implements Cloneable
             throw new CloneNotSupportedException();
             
         return copy;
+        */
     }
     
     @Override
