@@ -24,8 +24,8 @@ public class Game
         this.lastOccurredHazard = null;
         
         // just for testing
-        this.explorers.add(new CompSammi(0));
-        this.explorers.add(new CompDefault(1));
+        this.explorers.add(new Player(0));
+        this.explorers.add(new CompSammi(1));
         this.explorers.add(new CompDefault(2));
         this.explorers.add(new CompDefault(3));
         this.explorers.add(new CompSammi(4));
