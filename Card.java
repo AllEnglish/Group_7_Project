@@ -20,7 +20,10 @@ public abstract class Card implements Cloneable
         if (this instanceof Gemstone)
         {
             Gemstone self = (Gemstone)this;
-            return new Gemstone(self.number, self.value);
+            Gemstone copy = new Gemstone(self.number, self.value);
+            copy.valueOfLeftover = this.valueOfLeftover;
+            
+            return copy;
         }
         else
             throw new CloneNotSupportedException();
