@@ -80,6 +80,19 @@ public abstract class Agent // implements Comparable<Agent>
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
+        for (Card c : game.path)
+        {
+            try
+            {
+                System.out.println(c);
+                c.clone();
+            }
+            catch (CloneNotSupportedException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        
         this.inExploring = this.decision(0, game.getPath(), null);
     }
     
