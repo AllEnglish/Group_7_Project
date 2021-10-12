@@ -82,17 +82,8 @@ public abstract class Agent // implements Comparable<Agent>
         
         for (Card c : game.getPath())
         {
-            try
-            {
-                System.out.print(c);
-                c.clone();
-            }
-            catch (CloneNotSupportedException e)
-            {
-                e.printStackTrace();
-            }
+            c.clone();
         }
-        System.out.println();
         
         this.inExploring = this.decision(0, game.getPath(), null);
     }
