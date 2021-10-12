@@ -84,7 +84,7 @@ public abstract class Agent // implements Comparable<Agent>
         {
             try
             {
-                System.out.println(c);
+                System.out.print(c);
                 c.clone();
             }
             catch (CloneNotSupportedException e)
@@ -92,6 +92,7 @@ public abstract class Agent // implements Comparable<Agent>
                 e.printStackTrace();
             }
         }
+        System.out.println();
         
         this.inExploring = this.decision(0, game.getPath(), null);
     }
