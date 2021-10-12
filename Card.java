@@ -15,9 +15,15 @@ public abstract class Card implements Cloneable
     }
     
     @Override
-    public Object clone()
+    public Object clone() throws CloneNotSupportedException
     {
-        return null;
+        if (this instanceof Gemstone)
+        {
+            Gemstone self = (Gemstone)this;
+            return new Gemstone(self.number, self.value);
+        }
+        else
+            throw new CloneNotSupportedException();
     }
     
     @Override
