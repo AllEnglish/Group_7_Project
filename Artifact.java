@@ -56,12 +56,4 @@ public class Artifact extends Treasure
         return String.format("<\u001B[33m%s\u001B[0m>", (this.inTomb ? this.name() : "---"));
         // return String.format("%s <Artifact %d with value %d>", this.name(), this.number, this.value);
     }
-    
-    @Override
-    public Object clone()
-    {
-        Artifact copy = new Artifact(this.number, this.value);
-        copy.inTomb = this.inTomb;
-        return copy;
-    }
 }
