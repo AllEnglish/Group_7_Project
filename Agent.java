@@ -97,7 +97,7 @@ public abstract class Agent // implements Comparable<Agent>
             }
         }
         
-        this.inExploring = this.decision(0, game.getPath(), null);
+        this.inExploring = this.decision(0, g.getPath(), null);
     }
     
     public abstract boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
