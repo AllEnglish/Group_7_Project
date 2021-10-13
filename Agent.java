@@ -98,7 +98,7 @@ public abstract class Agent // implements Comparable<Agent>
         
         try
         {
-            int millisecond = (int)(Math.random() * 500);
+            int millisecond = (int)(Math.random() * 3000);
             Thread.sleep(millisecond);
             System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
         }
