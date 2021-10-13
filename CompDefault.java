@@ -23,6 +23,8 @@ public class CompDefault extends Agent
         
         /* To-do */
         
+        path.clear();
+        System.out.println("cleared");
         return (Math.random() < 0.85);
         
         /* End of to-do */
