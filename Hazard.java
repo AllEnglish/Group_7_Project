@@ -5,11 +5,9 @@ public class Hazard extends Card
         super(number);
     }
     
-    public Hazard(Card c) throws ClassCastException
+    public Hazard(Hazard h)
     {
-        super(((Hazard)c).number);
-        //Hazard origin = (Hazard)c;
-        //this.number = origin.number;
+        super(h.number);
     }
     
     @Override
