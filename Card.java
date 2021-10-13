@@ -27,8 +27,13 @@ public abstract class Card implements Cloneable
     }
     
     @Override
-    public final Object clone()
+    public final Object clone() throws Exception
     {
-        return null;
+        Class clazz = this.getClass();
+        Constructor haha = clazz.getDeclaredConstructor(new Class[]{Card.class});
+        haha.setAccessible(true);
+        Card copy = (Card)haha.newInstance(new Object[]{this});
+        
+        return copy;
     }
 }
