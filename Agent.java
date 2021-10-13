@@ -80,13 +80,13 @@ public abstract class Agent // implements Comparable<Agent>
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
-        List<Card> list = new ArrayList<>();
+        List<Card> copyOfPath = new ArrayList<>();
         
         for (Card c : g.getPath())
         {
             try
             {
-                list.add((Card)c.clone());
+                copyOfPath.add((Card)c.clone());
             }
             catch (CloneNotSupportedException e)
             {
@@ -94,9 +94,7 @@ public abstract class Agent // implements Comparable<Agent>
             }
         }
         
-        System.out.println(list);
-        
-        this.inExploring = this.decision(0, g.getPath(), null);
+        this.inExploring = this.decision(0, copyOfPath, null);
     }
     
     public abstract boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
