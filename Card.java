@@ -40,6 +40,7 @@ public abstract class Card implements Cloneable
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             throw new CloneNotSupportedException();
         }
     }
