@@ -91,6 +91,10 @@ public abstract class Agent // implements Comparable<Agent>
         {
             e.printStackTrace();
         }
+        catch (ClassCastException e)
+        {
+            e.printStackTrace();
+        }
         
         this.inExploring = this.decision(0, game.getPath(), null);
     }
