@@ -32,7 +32,6 @@ public abstract class Card implements Cloneable
         try
         {
             Class clazz = this.getClass();
-            // clazz => Hazard
             Constructor haha = clazz.getDeclaredConstructor(new Class[]{clazz});
             haha.setAccessible(true);
             Object copy = haha.newInstance(new Object[]{clazz.cast(this)});
