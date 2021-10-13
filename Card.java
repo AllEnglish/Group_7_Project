@@ -1,3 +1,6 @@
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 public abstract class Card implements Cloneable
 {
     protected int number;
