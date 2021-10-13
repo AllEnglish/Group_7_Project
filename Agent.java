@@ -95,6 +95,17 @@ public abstract class Agent // implements Comparable<Agent>
         }
         
         this.inExploring = this.decision(0, copyOfPath, null);
+        
+        try
+        {
+            int millisecond = (int)(Math.random() * 500);
+            Thread.sleep(millisecond);
+            System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
     }
     
     public abstract boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard);
