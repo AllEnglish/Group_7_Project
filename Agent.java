@@ -80,7 +80,6 @@ public abstract class Agent // implements Comparable<Agent>
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
-        
         for (Card c : g.getPath())
         {
             try
@@ -89,11 +88,7 @@ public abstract class Agent // implements Comparable<Agent>
             }
             catch (CloneNotSupportedException e)
             {
-                //e.printStackTrace();
-            }
-            catch (ClassCastException e)
-            {
-                //e.printStackTrace();
+                e.printStackTrace();
             }
         }
         
