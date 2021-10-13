@@ -84,7 +84,8 @@ public abstract class Agent // implements Comparable<Agent>
         {
             try
             {
-                c.clone();
+                if (!c.equals(c.clone()))
+                    System.out.println(false);
             }
             catch (CloneNotSupportedException e)
             {
