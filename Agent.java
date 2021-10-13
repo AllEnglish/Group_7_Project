@@ -73,27 +73,28 @@ public abstract class Agent // implements Comparable<Agent>
         return String.valueOf(this.type);
     }
 
-    public final void act(Game game)
+    public final void act(Game g)
     {
         // do something complicated to divide the argument "game" into the three parameter for act() method.
         // for those who want to make their own computer logic, it only needs to override decision() method and return a boolean value.
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
-        try
+        
+        for (Card c : g.getPath())
         {
-            for (Card c : game.getPath())
+            try
             {
                 c.clone();
             }
-        }
-        catch (CloneNotSupportedException e)
-        {
-            e.printStackTrace();
-        }
-        catch (ClassCastException e)
-        {
-            e.printStackTrace();
+            catch (CloneNotSupportedException e)
+            {
+                //e.printStackTrace();
+            }
+            catch (ClassCastException e)
+            {
+                //e.printStackTrace();
+            }
         }
         
         this.inExploring = this.decision(0, game.getPath(), null);
