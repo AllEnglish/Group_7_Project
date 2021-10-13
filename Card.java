@@ -24,7 +24,7 @@ public abstract class Card implements Cloneable
     }
     
     @Override
-    public Object clone()
+    public final Object clone()
     {
         return null;
     }
