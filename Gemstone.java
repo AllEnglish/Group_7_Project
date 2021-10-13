@@ -9,6 +9,12 @@ public class Gemstone extends Treasure
         super(number, value);
         this.valueOfLeftover = this.value;
     }
+    
+    public Gemstone(Gemstone g)
+    {
+        super(g.number, g.value);
+        this.valueOfLeftover = g.valueOfLeftover;
+    }
 
     public int getValueOfLeftover()
     {
