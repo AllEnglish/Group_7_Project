@@ -5,6 +5,8 @@ public class Hazard extends Card
         super(number);
     }
     
+    
+    
     @Override
     public String name()
     {
