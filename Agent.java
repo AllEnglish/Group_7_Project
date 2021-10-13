@@ -86,7 +86,7 @@ public abstract class Agent // implements Comparable<Agent>
         {
             try
             {
-                list.add(c.clone());
+                list.add((Card)c.clone());
             }
             catch (CloneNotSupportedException e)
             {
