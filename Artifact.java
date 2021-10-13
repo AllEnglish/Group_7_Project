@@ -10,6 +10,12 @@ public class Artifact extends Treasure
         this.inTomb = true;
     }
     
+    public Artifact(Artifact a)
+    {
+        super(a.number, a.value);
+        this.inTomb = a.inTomb;
+    }
+    
     @Override
     public String name()
     {
