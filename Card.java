@@ -31,8 +31,8 @@ public abstract class Card implements Cloneable
     { 
         try
         {
-            Class clazz = this.getClass();
-            Constructor constructor = clazz.getDeclaredConstructor(new Class[]{clazz});
+            Class<? extends Card> clazz = this.getClass();
+            Constructor<? extends Card> constructor = clazz.getDeclaredConstructor(new Class[]{clazz});
             constructor.setAccessible(true);
             Object copy = constructor.newInstance(new Object[]{clazz.cast(this)});
             return (Card)copy;
