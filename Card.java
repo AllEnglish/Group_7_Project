@@ -27,7 +27,7 @@ public abstract class Card implements Cloneable
     }
     
     @Override
-    public final C clone() throws CloneNotSupportedException
+    public final Card clone() throws CloneNotSupportedException
     { 
         try
         {
