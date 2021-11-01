@@ -59,7 +59,7 @@ public abstract class Agent // implements Comparable<Agent>
     }
     
     // the name of this method and it's varible are temporary
-    public int total()
+    public int totalValue()
     {
         int xv = 0;
         for (Artifact af : this.possessionOfArtifacts)
