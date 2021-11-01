@@ -30,14 +30,14 @@ public class Game
         this.explorers.add(new CompSammi(4));
         this.explorers.add(new CompDefault(5));
         
-        this.initializeCards();
+        this.setUpCards();
     }
     
     public void runGame()
     {
         for (int currentRound = 0; currentRound < Game.ROUND; currentRound++)
         {
-            this.reset();
+            this.initialize();
             System.out.println();
             System.out.println("round " + (currentRound + 1) + " start!");
             
@@ -53,8 +53,8 @@ public class Game
                     Treasure roomOfTreasure = (Treasure)currentRoom;
                     ArrayList<Agent> receivers = new ArrayList<>();
                     
-                    for (Agent explorerWhoStay : this.getStayExplorers())
-                        receivers.add(explorerWhoStay);
+                    for (Agent stayExplorer : this.getStayExplorers())
+                        receivers.add(stayExplorer);
 
                     roomOfTreasure.share(receivers);
                 }
@@ -66,8 +66,8 @@ public class Game
                     {
                         if (roomOfHazard.equals(this.path.get(i)))
                         {
-                            for (Agent explorerWhoStay : this.getStayExplorers())
-                                explorerWhoStay.flee();
+                            for (Agent stayExplorer : this.getStayExplorers())
+                                stayExplorer.flee();
                             this.lastOccurredHazard = roomOfHazard;
                             System.out.println("\u001B[31m*** " + roomOfHazard.name().toUpperCase() + " HAPPENED! ***\u001B[0m");
                             break;
@@ -77,18 +77,18 @@ public class Game
                 
                 // Hint
                 System.out.println(this.path);
-                for (Agent explorerWhoStay : this.getStayExplorers())
-                    System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
+                for (Agent stayExplorer : this.getStayExplorers())
+                    System.out.println("explorer " + stayExplorer.getType() + " owns " + stayExplorer.getGems() + " gem(s).");
                 System.out.println("--- asking everyone STAY or GO.");
 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 HashMap<Agent, Thread> actionOrder = new HashMap<>();
                 
-                for (Agent explorerWhoStay : this.getStayExplorers())
+                for (Agent stayExplorer : this.getStayExplorers())
                 {
-                    Thread action = new Thread(() -> explorerWhoStay.act(this));
+                    Thread action = new Thread(() -> stayExplorer.act(this));
                     action.start();
-                    actionOrder.put(explorerWhoStay, action);
+                    actionOrder.put(stayExplorer, action);
                 }
                 
                 try
@@ -148,7 +148,7 @@ public class Game
         }
     }
 
-    private void initializeCards()
+    private void setUpCards()
     {
         this.deck.add(new Hazard(0));
         this.deck.add(new Hazard(0));
@@ -189,7 +189,7 @@ public class Game
         this.artifactsInTomb.add(new Artifact(4, 12));
     }
     
-    private void reset()
+    private void initialize()
     {
         for (Agent explorer : this.explorers)
             explorer.setInExploring(true);
