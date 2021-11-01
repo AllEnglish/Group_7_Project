@@ -8,7 +8,7 @@ public class Player extends Agent
     }
     
     @Override
-    public boolean decision(GameData g)
+    public boolean decision(GameData data)
     {
         return new Scanner(System.in).nextLine().equals("y");
     }
