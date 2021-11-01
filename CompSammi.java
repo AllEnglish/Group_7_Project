@@ -8,8 +8,10 @@ public class CompSammi extends Agent
     }
     
     @Override
-    public boolean decision(int countOfExplorersInTomb, List<Card> path, List<Hazard> removedHazard)
+    public boolean decision(GameData g)
     {
+        ArrayList<Card> path = g.getPath();
+        
         if (path.size() <= 3)
             return true;
         else if (path.get(path.size() - 1) instanceof Treasure)
