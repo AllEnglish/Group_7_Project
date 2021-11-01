@@ -66,7 +66,7 @@ public class Game
                     {
                         if (roomOfHazard.equals(this.path.get(i)))
                         {
-                            for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                            for (Agent explorerWhoStay : this.getStayExplorers())
                                 explorerWhoStay.flee();
                             this.lastOccurredHazard = roomOfHazard;
                             System.out.println("\u001B[31m*** " + roomOfHazard.name().toUpperCase() + " HAPPENED! ***\u001B[0m");
@@ -77,14 +77,14 @@ public class Game
                 
                 // Hint
                 System.out.println(this.path);
-                for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                for (Agent explorerWhoStay : this.getStayExplorers())
                     System.out.println("explorer " + explorerWhoStay.getType() + " owns " + explorerWhoStay.getGems() + " gem(s).");
                 System.out.println("--- asking everyone STAY or GO.");
 
                 ArrayList<Agent> explorersWhoChooseToGo = new ArrayList<>();
                 HashMap<Agent, Thread> actionOrder = new HashMap<>();
                 
-                for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                for (Agent explorerWhoStay : this.getStayExplorers())
                 {
                     Thread action = new Thread(() -> explorerWhoStay.act(this));
                     action.start();
@@ -110,7 +110,7 @@ public class Game
                         ((Treasure)room).share(explorersWhoChooseToGo);
 
                 // Hint
-                System.out.println(this.getExplorersWhoStay() + " want(s) to keep exploring.");
+                System.out.println(this.getStayExplorers() + " want(s) to keep exploring.");
                 
                 try
                 {
@@ -226,15 +226,15 @@ public class Game
         this.path.add(this.deck.remove(0));
     }
     
-    private ArrayList<Agent> getExplorersWhoStay()
+    private ArrayList<Agent> getStayExplorers()
     {
-        ArrayList<Agent> explorersWhoStay = new ArrayList<>();
+        ArrayList<Agent> stayExplorers = new ArrayList<>();
         
         for (Agent explorer : this.explorers)
             if (explorer.isInExploring())
-                explorersWhoStay.add(explorer);
+                stayExplorers.add(explorer);
                 
-        return explorersWhoStay;
+        return stayExplorers;
     }
 
     private boolean isSomeoneStay()
