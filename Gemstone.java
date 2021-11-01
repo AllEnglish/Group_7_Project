@@ -2,28 +2,28 @@ import java.util.List;
 
 public class Gemstone extends Treasure
 {
-    protected int valueOfLeftover;
+    protected int remainValue;
     
     public Gemstone(int number, int value)
     {
         super(number, value);
-        this.valueOfLeftover = this.value;
+        this.remainValue = this.value;
     }
     
     public Gemstone(Gemstone g)
     {
         super(g.number, g.value);
-        this.valueOfLeftover = g.valueOfLeftover;
+        this.remainValue = g.remainValue;
     }
 
-    public int getValueOfLeftover()
+    public int getRemainValue()
     {
-        return this.valueOfLeftover;
+        return this.remainValue;
     }
     
     public void resetValue()
     {
-        this.valueOfLeftover = this.value;
+        this.remainValue = this.value;
     }
 
     @Override
@@ -37,8 +37,8 @@ public class Gemstone extends Treasure
     {
         if (!receivers.isEmpty())
         {
-            int oneShare = this.valueOfLeftover / receivers.size();
-            this.valueOfLeftover %= receivers.size();
+            int oneShare = this.remainValue / receivers.size();
+            this.remainValue %= receivers.size();
             
             for (Agent receiver : receivers)
                 receiver.addGems(oneShare);
