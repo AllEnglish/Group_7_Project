@@ -48,7 +48,7 @@ public class Gemstone extends Treasure
     @Override
     public String toString()
     {
-        return String.format("<\u001B[32m%d/%d\u001B[0m>", this.valueOfLeftover, this.value);
+        return String.format("<\u001B[32m%d/%d\u001B[0m>", this.remainValue, this.value);
         // return String.format("%s <Gemstone %d with value %d/%d>", this.name(), this.number, this.remainValue, this.value);
     }
 }
