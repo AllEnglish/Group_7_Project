@@ -53,7 +53,7 @@ public class Game
                     Treasure roomOfTreasure = (Treasure)currentRoom;
                     ArrayList<Agent> receivers = new ArrayList<>();
                     
-                    for (Agent explorerWhoStay : this.getExplorersWhoStay())
+                    for (Agent explorerWhoStay : this.getStayExplorers())
                         receivers.add(explorerWhoStay);
 
                     roomOfTreasure.share(receivers);
