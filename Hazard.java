@@ -43,7 +43,7 @@ public class Hazard extends Card
     @Override
     public String toString()
     {
-        return "<\u001B[31m" + this.name().charAt(0) + "\u001B[0m>";
+        return "<\u001B[31m" + this.name() + "\u001B[0m>";
         // return String.format("%s <Hazard %d>", this.name(), this.number);
     }
 }
