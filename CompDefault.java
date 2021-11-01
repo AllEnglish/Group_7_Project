@@ -8,7 +8,7 @@ public class CompDefault extends Agent
     }
     
     @Override
-    public boolean decision(GameData g)
+    public boolean decision(GameData data)
     {
         return (Math.random() < 0.85);
     }
