@@ -249,17 +249,19 @@ public class Game
        
     private Agent[] findWinners()
     {
-        int maxScore = 0;
+        int max = 0;
         ArrayList<Agent> winners = new ArrayList<>();
         
-        for (Agent people : this.explorers)
-            if (people.total() > maxScore)
-                maxScore = people.total();    
-         for(int i = 0 ; i < this.explorers.size() ; i++)
-         {
-            if (maxScore == this.explorers.get(i).total())
+        for (Agent explorer : this.explorers)
+        {
+            int totalValue = explorer.totalValue();
+            max = (totalValue > max) ? totalValue : max;
+        }
+        
+        for(int i = 0 ; i < this.explorers.size() ; i++)
+            if (this.explorers.get(i).totalValue() == max)
                 winners.add(this.explorers.get(i));
-         }
+        
         return winners.toArray(new Agent[winners.size()]);
     }
     
