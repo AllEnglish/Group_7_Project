@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class GameData
 {
-    private int countOfExplorersInTomb;
+    private int stayExplorersCount;
     private ArrayList<Card> path;
     
     public GameData(Game g)
     {
-        this.countOfExplorersInTomb = 0;
+        this.stayExplorersCount = 0;
         this.path = new ArrayList<>();
         
         for (Card c : g.getPath())
@@ -23,9 +23,9 @@ public class GameData
         }
     }
     
-    public int getCountOfExplorersInTomb()
+    public int getStayExplorersCount()
     {
-        return this.countOfExplorersInTomb;
+        return this.stayExplorersCount;
     }
     
     public ArrayList<Card> getPath()
