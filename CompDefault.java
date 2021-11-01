@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class CompDefault extends Agent
 {    
     public CompDefault(int type)
