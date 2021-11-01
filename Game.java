@@ -7,16 +7,15 @@ import java.util.Random;
 
 public class Game
 {
-    private final int round;
+    private static final int ROUND = 5;
     private ArrayList<Agent> explorers;
     private ArrayList<Card> deck;
     private ArrayList<Card> path;
     private ArrayList<Artifact> artifactsInTomb;
     private Hazard lastOccurredHazard;
 
-    public Game(int round)
+    public Game()
     {
-        this.round = round;
         this.explorers = new ArrayList<>();
         this.deck = new ArrayList<>();
         this.path = new ArrayList<>();
@@ -36,7 +35,7 @@ public class Game
     
     public void runGame()
     {
-        for (int currentRound = 0; currentRound < this.round; currentRound++)
+        for (int currentRound = 0; currentRound < Game.ROUND; currentRound++)
         {
             this.reset();
             System.out.println();
