@@ -122,7 +122,7 @@ public class Game
                     e.printStackTrace();
                 }
             }
-            while (this.isSomeoneExploring());
+            while (this.isSomeoneStay());
             
             System.out.println("\nround " + (currentRound + 1) + " ended!");
             
@@ -238,7 +238,7 @@ public class Game
         return explorersWhoStay;
     }
 
-    private boolean isSomeoneExploring()
+    private boolean isSomeoneStay()
     {
         boolean find = false;
         
