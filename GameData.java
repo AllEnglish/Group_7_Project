@@ -1,11 +1,11 @@
 public class GameData
 {
-    private int playerNum;
+    private int countOfExplorersInTomb;
     private List<Card> path;
     
     public GameData(Game g)
     {
-        this.playerNum = 0;
+        this.countOfExplorersInTomb = 0;
         this.path = new ArrayList<>();
         
         for (Card c : g.getPath())
@@ -21,9 +21,9 @@ public class GameData
         }
     }
     
-    public int getPlayerNum()
+    public int getCountOfExplorersInTomb()
     {
-        return this.playerNum;
+        return this.countOfExplorersInTomb;
     }
     
     public List<Card> getPath()
