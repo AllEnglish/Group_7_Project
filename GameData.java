@@ -4,7 +4,7 @@ import java.util.List;
 public class GameData
 {
     private int countOfExplorersInTomb;
-    private List<Card> path;
+    private ArrayList<Card> path;
     
     public GameData(Game g)
     {
@@ -29,7 +29,7 @@ public class GameData
         return this.countOfExplorersInTomb;
     }
     
-    public List<Card> getPath()
+    public ArrayList<Card> getPath()
     {
         return this.path;
     }
