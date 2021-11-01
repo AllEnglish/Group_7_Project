@@ -8,9 +8,9 @@ public class CompSammi extends Agent
     }
     
     @Override
-    public boolean decision(GameData g)
+    public boolean decision(GameData data)
     {
-        ArrayList<Card> path = g.getPath();
+        ArrayList<Card> path = data.getPath();
         
         if (path.size() <= 3)
             return true;
