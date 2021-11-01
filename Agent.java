@@ -80,19 +80,23 @@ public abstract class Agent // implements Comparable<Agent>
         // NOTICE 1: for some reason, this method should be final...
         // NOTICE 2: we cannot pass "game.path" into decision() directly, but the deep-copied one.
         
-        this.inExploring = this.decision(new GameData(g));
-        
-        try
+        if (this.inExploring)
         {
-            int millisecond = (int)(Math.random() * 100);
-            Thread.sleep(millisecond);
-            System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
+            GameData data = new GameData(g);
+            this.inExploring = this.decision(data);
+
+            try
+            {
+                int millisecond = (int)(Math.random() * 100);
+                Thread.sleep(millisecond);
+                System.out.println("    " + this.getClass().getName() + " " + this.type + " decided! (" + (millisecond / 1000.0) + "s)");
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
         }
     }
     
-    public abstract boolean decision(GameData g);
+    public abstract boolean decision(GameData data);
 }
