@@ -34,7 +34,7 @@ public class Game
         this.initializeCards();
     }
     
-    public void startGame()
+    public void runGame()
     {
         for (int currentRound = 0; currentRound < this.round; currentRound++)
         {
